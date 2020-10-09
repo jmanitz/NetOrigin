@@ -29,7 +29,7 @@ NULL
 #' @examples
 #' # Athens metro system 
 #' data(ptnAth)
-#' analyze_ptn(ptnAth)
+#' analyze_net(ptnAth)
 #' plot_ptn(ptnAth)
 #'
 NULL
@@ -48,7 +48,7 @@ NULL
 #' @examples
 #' # Goettingen bus system 
 #' data(ptnGoe)
-#' analyze_ptn(ptnGoe)
+#' analyze_net(ptnGoe)
 #' plot_ptn(ptnGoe)
 #'
 NULL
@@ -123,6 +123,21 @@ NULL
 #'                      list(graph = ptnGoe)))
 #' }
 #' } 
+NULL
+
+#' \code{envirPara} Environment parameters for KwaZulu-Natal
+#' 
+#' @name envirPara
+#' @rdname envirPara
+#' @docType data
+#' @keywords data
+#' 
+#' @details \code{envirPara} Environment parameters for KwaZulu-Natal
+#'
+#' @examples
+#' library(NetOrigin)
+#' data(envirPara)
+#' y0 <- initial_condition_SIB_SS(popu, sigma, mu_B, theta, c(428))
 NULL
 
 

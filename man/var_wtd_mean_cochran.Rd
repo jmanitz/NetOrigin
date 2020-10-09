@@ -24,4 +24,3 @@ This is a helper method for weighted variance computation in \code{\link{origin_
   \item \url{http://r.789695.n4.nabble.com/Problem-with-Weighted-Variance-in-Hmisc-td826437.html}
 }
 }
-

@@ -2,17 +2,16 @@
 % Please edit documentation in R/origin_helper.r, R/origin_methods.r
 \name{origin}
 \alias{origin}
+\alias{origin_edm}
 \alias{origin_backtracking}
 \alias{origin_centrality}
-\alias{origin_edm}
 \title{Origin Estimation for Propagation Processes on Complex Networks}
 \usage{
 origin(events, type = c("edm", "backtracking", "centrality"), ...)
 
 origin_edm(events, distance, silent = TRUE)
 
-origin_backtracking(events, graph, start_with_event_node = TRUE,
-  silent = TRUE)
+origin_backtracking(events, graph, start_with_event_node = TRUE, silent = TRUE)
 
 origin_centrality(events, graph, silent = TRUE)
 }
@@ -75,10 +74,6 @@ This is the main function for origin estimation for propagation processes on com
 For details on the methodological background, we refer to the corresponding publications.
 
 \code{origin_edm} for effective distance-median origin estimation (Manitz et al., 2016)
-
-\code{origin_backtracking} for recursive backtracking origin estimation (Manitz et al., 2016)
-
-\code{origin_centrality} for centrality-based origin estimation (Comin et al., 2011)
 }
 \examples{
 data(delayGoe)
@@ -108,9 +103,6 @@ plot(oc, start=1)
 performance(oc, start=1, graph=ptnGoe)
 
 }
-\author{
-Juliane Manitz with contributions by Jonas Harbering
-}
 \references{
 \itemize{
   \item Comin, C. H. and da Fontoura Costa, L. (2011). Identifying the starting point of a spreading process in complex networks. Physical Review E, 84. <DOI: 10.1103/PhysRevE.84.056105>
@@ -120,6 +112,10 @@ Juliane Manitz with contributions by Jonas Harbering
 }
 }
 \seealso{
-Other origin-est: \code{\link{origin_multiple}}
+Other origin-est: 
+\code{\link{origin_multiple}()}
 }
-
+\author{
+Juliane Manitz with contributions by Jonas Harbering
+}
+\concept{origin-est}

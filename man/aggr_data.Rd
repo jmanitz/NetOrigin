@@ -20,6 +20,7 @@ aggr_data(dat, from = NULL, cumsum = TRUE)
 convert individual event information to aggregated information per network node
 }
 \seealso{
-Other data_handling: \code{\link{read_DB_data}}
+Other data_handling: 
+\code{\link{read_DB_data}()}
 }
-
+\concept{data_handling}
