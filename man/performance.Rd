@@ -17,4 +17,3 @@ generic method for performance evaluation
 \seealso{
 \code{\link{origin-methods}} \code{\link{plot_performance}}
 }
-

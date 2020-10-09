@@ -4,8 +4,17 @@
 \alias{plot_performance}
 \title{A plot method combining a time series of performance results.}
 \usage{
-plot_performance(x, var = "rank", add = FALSE, offset = NULL,
-  log = FALSE, col = 1, ylim = NULL, text.padding = 0.9, ...)
+plot_performance(
+  x,
+  var = "rank",
+  add = FALSE,
+  offset = NULL,
+  log = FALSE,
+  col = 1,
+  ylim = NULL,
+  text.padding = 0.9,
+  ...
+)
 }
 \arguments{
 \item{x}{\code{data.frame} obtained by combined results from \code{\link{performance.origin}} with variables \code{X1} for time point, \code{start} for true origin, \code{est} for estimated origin, and performance variables}
@@ -67,4 +76,3 @@ if (requireNamespace("aplyr", quietly = TRUE)) {
 }
 }
 }
-

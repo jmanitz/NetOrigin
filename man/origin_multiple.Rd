@@ -4,8 +4,15 @@
 \alias{origin_multiple}
 \title{Multiple origin estimation using community partitioning}
 \usage{
-origin_multiple(events, type = c("edm", "backtracking", "centrality"), graph,
-  no = 2, distance, fast = TRUE, ...)
+origin_multiple(
+  events,
+  type = c("edm", "backtracking", "centrality"),
+  graph,
+  no = 2,
+  distance,
+  fast = TRUE,
+  ...
+)
 }
 \arguments{
 \item{events}{numeric vector of event counts at specific time point}
@@ -23,7 +30,7 @@ origin_multiple(events, type = c("edm", "backtracking", "centrality"), graph,
 \item{...}{parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}}
 }
 \value{
-\code{origin_multiple} returns an list object with objects of class \code{\link{origin}} of length \code{no}
+\code{origin_multiple} returns a list object with objects of class \code{\link{origin}} of length \code{no}
 }
 \description{
 Multiple origin estimation using community partitioning
@@ -43,6 +50,7 @@ origin_multiple(events=delayAth[10,-c(1:2)], type='edm', graph=ptnAth, no=2, dis
 Zang, W., Zhang, P., Zhou, C. and Guo, L. (2014) Discovering Multiple Diffusion Source Nodes in Social Networks. Procedia Computer Science, 29, 443-452. <DOI: 10.1016/j.procs.2014.05.040>
 }
 \seealso{
-Other origin-est: \code{\link{origin}}
+Other origin-est: 
+\code{\link{origin}()}
 }
-
+\concept{origin-est}

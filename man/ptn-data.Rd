@@ -30,20 +30,19 @@ Public transportation network datasets from LinTim software (Integrated Optimiza
 \examples{
 # Athens metro system 
 data(ptnAth)
-analyze_ptn(ptnAth)
+analyze_net(ptnAth)
 plot_ptn(ptnAth)
 
 # Goettingen bus system 
 data(ptnGoe)
-analyze_ptn(ptnGoe)
+analyze_net(ptnGoe)
 plot_ptn(ptnGoe)
 
-}
-\author{
-Juliane Manitz and Jonas Harbering
 }
 \seealso{
 \code{\link{delay-data}}
 }
+\author{
+Juliane Manitz and Jonas Harbering
+}
 \keyword{data}
-

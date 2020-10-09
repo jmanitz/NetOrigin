@@ -4,8 +4,13 @@
 \alias{robustness}
 \title{run robustness analysis for a source estimate by subsampling individual events.}
 \usage{
-robustness(x, type = c("edm", "backtracking", "centrality"), prop, n = 100,
-  ...)
+robustness(
+  x,
+  type = c("edm", "backtracking", "centrality"),
+  prop,
+  n = 100,
+  ...
+)
 }
 \arguments{
 \item{x}{\code{data.frame}, dataset with individual events and their magnitude, to be passed to \code{\link{aggr_data}}}
@@ -57,4 +62,3 @@ plot(r9, add=TRUE, col='gray')
 \seealso{
 \code{\link{robustness-methods}}
 }
-

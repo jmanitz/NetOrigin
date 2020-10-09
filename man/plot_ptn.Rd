@@ -4,11 +4,16 @@
 \alias{plot_ptn}
 \title{A plot method for public transportation networks (PTNs).}
 \usage{
-plot_ptn(g, color.coding = NULL, color.scheme = rev(sequential_hcl(5)),
-  legend = FALSE, ...)
+plot_ptn(
+  graph,
+  color.coding = NULL,
+  color.scheme = rev(sequential_hcl(5)),
+  legend = FALSE,
+  ...
+)
 }
 \arguments{
-\item{g}{\code{\link{igraph}} object, network graph representing the public transportation network, vetrices represent stations, which are linked by an edge if there is a direct transfer between them}
+\item{graph}{\code{\link{igraph}} object, network graph representing the public transportation network, vetrices represent stations, which are linked by an edge if there is a direct transfer between them}
 
 \item{color.coding}{numeric vector with length equal to the number of network nodes}
 
@@ -30,6 +35,7 @@ plot_ptn(ptnGoe)
 
 }
 \seealso{
-Other network helper: \code{\link{analyze_ptn}}
+Other network helper: 
+\code{\link{analyze_net}()}
 }
-
+\concept{network helper}

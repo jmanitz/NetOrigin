@@ -16,4 +16,6 @@ plot(x, y, ...)
 \description{
 generic method for plots
 }
-
+\seealso{
+\code{\link{plot_partition}} \code{\link{plot_performance}} \code{\link{plot_ptn}} \code{\link{origin-methods}} \code{\link{hpd-methods}}
+}
