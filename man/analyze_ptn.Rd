@@ -40,6 +40,7 @@ Details to the computation and interpretation can be found in:\itemize{
 }
 }
 \seealso{
-Other network helper: \code{\link{plot_ptn}}
+Other network helper: 
+\code{\link{plot_ptn}()}
 }
-
+\concept{network helper}

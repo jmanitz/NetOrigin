@@ -7,10 +7,20 @@ Depends: R (>= 3.2.2)
 Imports: igraph, Hmisc, colorspace
 License: GPL-3
 LazyData: true
-RoxygenNote: 5.0.1
-Collate: '0_helper_net.r' 'NetOrigin.r' 'origin_helper.r'
-        'origin_methods.r' 'distance.r' 'data.r' 'data_handling.r'
-        'robustness.r'
+RoxygenNote: 7.1.1
+Collate: 
+    '0_helper_net.r'
+    'NetOrigin.r'
+    'SIB_SS.R'
+    'compute_mu_lambda.R'
+    'origin_helper.r'
+    'origin_methods.r'
+    'distance.r'
+    'data.r'
+    'data_handling.r'
+    'infer_source_bayesian.R'
+    'initial_condition_SIB_SS.R'
+    'robustness.r'
 NeedsCompilation: no
 Packaged: 2018-04-19 03:48:07 UTC; jmanitz
 Author: Juliane Manitz [aut, cre],
