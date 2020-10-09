@@ -125,7 +125,7 @@ plot.robustness <- function(x, y=NULL, add = FALSE, ...){
     if(add){ 
        lines(x$rob, ...) 
     }else{
-    plot(x$rob, type='l', lty=1, ylim=c(-0.15,1.0), ylab='proportion of estimate recovery', ...)   
+    plot(x$rob, type='l', ylim=c(-0.15,1.0), ylab='proportion of estimate recovery', ...)   
     # add estimates
     est <- levels(x$est)
     pos <- match(est, x$est)

@@ -30,7 +30,7 @@ origin_multiple(
 \item{...}{parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}}
 }
 \value{
-\code{origin_multiple} returns an list object with objects of class \code{\link{origin}} of length \code{no}
+\code{origin_multiple} returns a list object with objects of class \code{\link{origin}} of length \code{no}
 }
 \description{
 Multiple origin estimation using community partitioning
