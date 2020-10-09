@@ -319,7 +319,7 @@ origin_multiple <- function(events, ...) UseMethod("origin_multiple")
 #' @param no numeric specifying the number of supposed origins
 #' @param distance numeric matrix specifying the distance matrix
 #' @param ... parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}
-#' @return \code{origin_multiple} returns an list object with objects of class \code{\link{origin}} of length \code{no}
+#' @return \code{origin_multiple} returns a list object with objects of class \code{\link{origin}} of length \code{no}
 #'
 #' @family origin-est
 #'

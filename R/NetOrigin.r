@@ -1,8 +1,8 @@
 #' Origin Estimation for Propagation Processes on Complex Networks
 #'
-#' Performs different approaches for network-based source estimation: effective distance median, recursive backtracking, and centrality-based source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.
+#' Performs different approaches for network-based source estimation: effective distance median, recursive backtracking, centrality-based and Gaussian source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.
 #' 
-#' The main function for origin estimation of propagation processes on complex network is \code{\link{origin}}. Different methods are available: effective distance median (\code{'edm'}), recursive backtracking (\code{'backtracking'}), and centrality-based source estimation (\code{'centrality'}).
+#' The main function for origin estimation of propagation processes on complex network is \code{\link{origin}}. Different methods are available: effective distance median (\code{'edm'}), recursive backtracking (\code{'backtracking'}), centrality-based (\code{'centrality'}), and Gaussian source estimation (\code{'gaussian'}).
 #' For more details on the methodological background, we refer to the corresponding publications.
 #'
 #' @references \itemize{

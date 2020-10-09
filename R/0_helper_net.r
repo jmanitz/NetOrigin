@@ -1,6 +1,6 @@
-#' analyze public transportation network characteristics
+#' analyze network characteristics
 #' 
-#' @param g \code{\link{igraph}} object, network graph representing the public transportation network, vertices represent stations, which are linked by an edge if there is a direct transfer between them
+#' @param graph \code{\link{igraph}} object, network graph representing the public transportation network, vertices represent stations, which are linked by an edge if there is a direct transfer between them
 #' @return \code{'data.frame':} 1 obs. of 7 variables: 
 #'   \itemize{
 #'      \item \code{vcount} number of nodes, 
@@ -11,6 +11,7 @@
 #'      \item \code{av_spl} average shortest path length, 
 #'      \item \code{diam} diameter, and 
 #'      \item \code{trans} transitivity.
+#'      \item \code{cluster} number of clusters
 #' }
 #' 
 #' @references Details to the computation and interpretation can be found in:\itemize{
@@ -20,39 +21,41 @@
 #'
 #' @examples
 #' data(ptnAth)
-#' analyze_ptn(ptnAth)
+#' analyze_net(ptnAth)
 #'
 #' data(ptnGoe)
-#' analyze_ptn(ptnGoe)
+#' analyze_net(ptnGoe)
 #' 
 #' @import igraph
 #' @family network helper
 #' @export
-analyze_ptn <- function(g){
-    K <- vcount(g)
+analyze_net <- function(graph){
+    K <- vcount(graph)
     # compute graph characteristics
     res <-  data.frame(vcount = K,
-                       ecount = ecount(g),
+                       ecount = ecount(graph),
                        # graph density
-                       density = edge_density(g),
+                       density = edge_density(graph),
                        # average degree
-                       av_deg = mean(degree(g)),
+                       av_deg = mean(degree(graph)),
                        # av unit betweenness
-                       av_cent = mean(betweenness(g))/((K-1)*(K-2)/2),
+                       av_cent = mean(betweenness(graph))/((K-1)*(K-2)/2),
                        # av shortest path length
-                       av_spl = mean_distance(g),
+                       av_spl = mean_distance(graph),
                        # diameter
-                       diam = diameter(g),
+                       diam = diameter(graph),
                        # transitivity
-                       trans = transitivity(g, type='global'))
-#    power.law.fit(degree(g))
+                       trans = transitivity(graph, type='global'),
+                       # number of clusters
+		       cluster = clusters(graph)$no)
+#    power.law.fit(degree(graph))
     # output 
     return(res)
 }
 
 #' A plot method for public transportation networks (PTNs).
 #' 
-#' @param g \code{\link{igraph}} object, network graph representing the public transportation network, vetrices represent stations, which are linked by an edge if there is a direct transfer between them
+#' @param graph \code{\link{igraph}} object, network graph representing the public transportation network, vetrices represent stations, which are linked by an edge if there is a direct transfer between them
 #' @param color.coding numeric vector with length equal to the number of network nodes
 #' @param color.scheme character vector of length 5 indicating the \code{vertex.color}, default is \code{rev(sequential_hcl(5))}
 #' @param legend logical indicating whether legend for color-coding should be added or not.
@@ -69,7 +72,7 @@ analyze_ptn <- function(g){
 #' @import colorspace
 #' @family network helper
 #' @export
-plot_ptn <- function(g, color.coding = NULL, color.scheme = rev(sequential_hcl(5)), legend = FALSE, ...){
+plot_ptn <- function(graph, color.coding = NULL, color.scheme = rev(sequential_hcl(5)), legend = FALSE, ...){
 
     # color.coding
     if(is.null(color.coding)){
@@ -80,10 +83,10 @@ plot_ptn <- function(g, color.coding = NULL, color.scheme = rev(sequential_hcl(5
         legend <- TRUE
     }
     # layout
-    ltr <- layout_with_kk(g) 
+    ltr <- layout_with_kk(graph) 
 
     # plot
-    plot.igraph(g, xlim=c(-2,2), ylim=c(-1.75,1.75), asp=0.6, margin=-1.05, layout=ltr,
+    plot.igraph(graph, xlim=c(-2,2), ylim=c(-1.75,1.75), asp=0.6, margin=-1.05, layout=ltr,
          vertex.size=2, vertex.label = NA, vertex.color = vertex.color, #vertex.shape = 'circle', 
          edge.curved = FALSE, ...) #edge.lty=3, edge.width=2,
 

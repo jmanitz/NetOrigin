@@ -1,7 +1,7 @@
 origin <- function(events, ...) UseMethod("origin")
 #' Origin Estimation for Propagation Processes on Complex Networks
 #'
-#' This is the main function for origin estimation for propagation processes on complex networks. Different methods are available: effective distance median (\code{'edm'}), recursive backtracking (\code{'backtracking'}), and centrality-based source estimation (\code{'centrality'}).
+#' This is the main function for origin estimation for propagation processes on complex networks. Different methods are available: effective distance median (\code{'edm'}), recursive backtracking (\code{'backtracking'}), centrality-based source estimation (\code{'centrality'}) and gaussian source estimator (\code{'gaussian'}).
 #' For details on the methodological background, we refer to the corresponding publications.
 #'
 #' @rdname origin
@@ -9,35 +9,47 @@ origin <- function(events, ...) UseMethod("origin")
 #'
 #' @references \itemize{
 #'   \item Comin, C. H. and da Fontoura Costa, L. (2011). Identifying the starting point of a spreading process in complex networks. Physical Review E, 84. <DOI: 10.1103/PhysRevE.84.056105>
+#'   \item Pinto, P. C., P. Thiran, and M. Vetterli (2012). Locating the source of diffusion in large-scale networks. Physical Review Letters 109 (6).
 #'   \item Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2016). Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Accepted at JRSS-C.
 #'  \item Manitz, J. (2014). Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr.~Hut, ISBN 978-3-8439-1668-4. Available online: \url{http://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
 #'   \item Manitz, J., Kneib, T., Schlather, M., Helbing, D. and Brockmann, D. (2014). Origin detection during food-borne disease outbreaks - a case study of the 2011 EHEC/HUS outbreak in Germany. PLoS Currents Outbreaks, 1. <DOI: 10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2>
 #' }
 #'
 #' @param events numeric vector of event counts at a specific time point
-#' @param type character specifying the method, \code{'edm'}, \code{'backtracking'} and \code{'centrality'} are available.
-#' @param ... parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}
+#' @param type character specifying the method, \code{'edm'}, \code{'backtracking'}, \code{'centrality'} and \code{'gaussian'} are available.
+#' @param ... parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}}, \code{\link{origin_centrality}} or \code{\link{origin_gaussian}}
 #'
 #' @family origin-est
+#' @seealso \code{\link{origin-methods}}
 #' @export
-origin <- function(events, type=c('edm', 'backtracking', 'centrality'), ...){
+origin <- function(events, type=c('edm', 'backtracking', 'centrality', 'gaussian'), ...){
     type <- match.arg(type)
     switch(type,
            edm = origin_edm(events = events, ...),
            backtracking = origin_backtracking(events = events, ...),
-           centrality = origin_centrality(events = events, ...))
+           centrality = origin_centrality(events = events, ...),
+	   gaussian = origin_gaussian(events = events, ...))
 }
 
 
 #################### standard methods for origin objects ######################
 
 # add generic 
-#print <- function(x) UseMethod("print")
+#' generic methods for printed output
+#' @param x object
+#' @param ... further arguments
+#'
+#' @seealso \code{\link{print.origin}}, \code{\link{origin-methods}}, \code{\link{print.robustness}}, \code{\link{print.hpd}}, \code{\link{hpd-methods}}
+#' @export
+print <- function(x) UseMethod("print")
+
 #' @name origin-methods
 #' @aliases print.origin
-#' @aliases summary
-#' @aliases plot
+#' @aliases summary.origin
+#' @aliases plot.origin
 #' @aliases performance
+#' @aliases performance.origin
+#' @aliases hpd.origin
 #'
 #' @title methods for origin estimation objects of class \code{origin}
 #' 
@@ -49,13 +61,15 @@ origin <- function(events, type=c('edm', 'backtracking', 'centrality'), ...){
 #' @seealso \code{\link{origin}} \code{\link{plot_performance}}
 #' @export
 print.origin <- function(x, ...){
-  if(!is.na(x$est)){ 
+  if(length(x$est) && !is.na(x$est)){ 
      switch(x$type, edm = cat('Effective distance median origin estimation:\n\n'),
 		    backtracking = cat('Backtracking origin estimation:\n\n'),
-                    centrality = cat('Centrality-based origin estimation:\n\n'))
-    cat(paste('estimated node of origin', x$est))    
-    if(!is.null(rownames(x[[2]]))) cat(paste(':',rownames(x[[2]])[x$est],'\n'))
+                    centrality = cat('Centrality-based origin estimation:\n\n'),
+                    gaussian = cat('Gaussian origin estimation:\n\n'))
+    cat(paste('estimated node of origin:', x$est,''))    
+    if(!is.null(rownames(x$aux))) cat(paste(rownames(x$aux)[x$est],'\n'))
     else cat('\n')
+    if(!is.null(x$prob)) cat(paste('with posterior detection probability',round(x$prob,3),'\n'))
   }else{
     cat('source estimation not available\n')
   }
@@ -63,7 +77,14 @@ print.origin <- function(x, ...){
 }
 
 # add generic 
-#summary <- function(x, ...) UseMethod("summary")
+#' generic methods for summaries
+#' @param object object
+#' @param ... further arguments
+#'
+#' @seealso \code{\link{summary.origin}}, \code{\link{origin-methods}}, \code{\link{summary.robustness}}, \code{\link{summary.hpd}}, \code{\link{hpd-methods}}
+#' @export
+summary <- function(object, ...) UseMethod("summary")
+
 #' \code{summary} produces an object summary for objects of class \code{origin}.
 #'
 #' @param object object of class \code{\link{origin}}, origin estimation object from function \code{origin_xxx}; passed to \code{x}
@@ -77,14 +98,24 @@ summary.origin <- function(object, x = object, ...){
     return(invisible(x))
 }
 
+# add generic for plot
+#' generic method for plots
+#' @param x object
+#' @param y object
+#' @param ... further arguments
+#' 
+#' @seealso \code{\link{plot_partition}} \code{\link{plot_performance}} \code{\link{plot_ptn}} \code{\link{origin-methods}} \code{\link{hpd-methods}}
+#' @export
+plot <- function(x, y, ...) UseMethod("plot")
 #' \code{plot} generates an illustration of an origin object using the variable to be optimized.
 #'
 #' @param y character specifying the variable being plotted at the y-axis; options are \code{'id'} for node identifier (default), \code{'mdist'} for mean distance (only available for \code{\link{origin_edm}}) or \code{'wvar'} for weighted variance (only available for \code{\link{origin_edm}})
 #' @param start numeric, giving the node of the true origin
+#' @param labels vector specifying node labels to be plotted, default are no labels specified by \code{labels=NULL}
 #'
 #' @rdname origin-methods
 #' @export
-plot.origin <- function(x, y='id', start, ...){
+plot.origin <- function(x, y='id', start, labels=NULL,...){
     # extract estimation result
     k0.hat <- x$est
     res <- x$aux
@@ -97,35 +128,47 @@ plot.origin <- function(x, y='id', start, ...){
     }
     # define point size proportional to event magnitude 
     x <- sqrt(res$events)
-    px <- x/max(x)*3+0.5 # point size propotional to events observed
+    x[is.na(x)] <- 0
+    px <- x/max(x, na.rm=TRUE)*3+0.75 # point size propotional to events observed
+    pch <- integer(K)+1 # empty points for missing values
+    pch[!is.na(res$events)] <- 20 # filled dots for observations
 
     # specify what should be plotted
-    y <- match.arg(y, c('id', 'wvar', 'mdist'))
-    # plot: aux[,3] (cent,wmean) ~ id scatterplot
-    if(y == 'id'){
+    y <- match.arg(y, c('id','wvar','mdist','bcount','delta','post'))
+    # plot: aux[,3] (cent,wmean,bcount, delta) ~ id scatterplot
+    if(any(y == c('id', 'wmean', 'bcount', 'delta'))){
       xy <- res[,c(3,1)]
     }
-    # plot: weighted mean - unweighted mean effective distance scatterplot
+    # plot (edm): weighted mean - unweighted mean effective distance scatterplot
     if(y == 'mdist'){
       xy <- res[,c('wmean','mdist')]
     }
-    # plot: mean - variance scatterplot
+    # plot (edm): mean - variance scatterplot
     if(y == 'wvar'){
       xy <- res[,c('wmean','wvar')]
     }
+    # plot (gaussian): prior, posterior, wpost
+    if(y == 'post'){
+      xy <- res[,c('prior','post')]
+    }
+#    if(y == 'wpost'){
+#      xy <- res[,c('post','wpost')]
+#    }
+
 
     ### Plot
-    plot(xy, las=1, bty='l', col='darkgrey', pch=20, cex=px, ...)
+    plot(xy, las=1, bty='l', col='darkgrey', pch=pch, cex=px, ...)
     points(xy[k0.hat,], col='limegreen', pch=13, cex=1.5, lwd=1.5)
+    if(!is.null(labels)) text(xy,labels=labels)
 
     # mark true and estimated origin
     if(is.null(start)){      # if true origin is NOT known
-       legend('bottomright', pch=13, lwd=1.5, lty=NA, bty='n',
+       legend('topright', pch=13, lwd=1.5, lty=NA, bty='n',
               legend=paste('estimation:', node.names[k0.hat]), col=c('limegreen'))
     }else{                   # if true origin is known
        name.start <- ifelse(is.na(start), NA, node.names[start])
-       points(xy[start,-1], col='indianred1', pch=13, cex=1.5, lwd=1.5)
-       legend('bottomright', bty='n',
+       points(xy[start,], col='indianred1', pch=13, cex=1.5, lwd=1.5)
+       legend('topright', bty='n',
               col=c('indianred1','limegreen'), pch=13, lwd=1.5, lty=NA, 
               legend=c(paste('true origin:',node.names[start]),
                        paste('estimation:', node.names[k0.hat])))
@@ -146,6 +189,7 @@ performance <- function(x, ...) UseMethod("performance")
 #' \code{performance} evaluates an object of class \code{origin} and returns a \code{data.frame} identifying correct estimation, and computing rank and distance of correct detection.
 #' 
 #' @param graph \code{\link{igraph}} object specifying the underlying network graph with attribute 'length' on edges for calculation of distance to the correct origin
+#' @param silent logical, should messages be suppressed?
 #' @param ... further arguments to be passed to default \code{plot} function
 #'
 #' @return \code{performance.origin} returns a \code{data.frame} with variables
@@ -172,7 +216,7 @@ performance <- function(x, ...) UseMethod("performance")
 #' @import igraph
 #' @rdname origin-methods
 #' @export
-performance.origin <-  function(x, start, graph=NULL, ...){
+performance.origin <-  function(x, start, graph=NULL, silent=FALSE, ...){
 
     # extract estimation result
     k0.hat <- x$est
@@ -187,19 +231,19 @@ performance.origin <-  function(x, start, graph=NULL, ...){
 
     ### evaluation measures
     ret <- data.frame(start = node.names[start], est = NA, 
-                      hitt = 'missing', rank = NA, spj = NA, dist = NA)
+                      hitt = NA, rank = NA, spj = NA, dist = NA)
 #                      r.err = NA, v.coef = NA)
     # no source detection to evaluate
     if(is.na(k0.hat)) return(ret)
     else ret$est = node.names[k0.hat]
     # correct source detection
     if(start == k0.hat){
-       ret$hitt <- 'TRUE'
+       ret$hitt <- TRUE
        ret$rank <- 1
        ret$spj <- ret$dist <- 0
 #       ret$r.err <- ret$v.coef <- 0
     }else{
-       ret$hitt <- 'FALSE'
+       ret$hitt <- FALSE
        # rank of correct detection
        ret$rank <- switch(x$type,
            # effective distance median: minimize weighted mean
@@ -207,14 +251,16 @@ performance.origin <-  function(x, start, graph=NULL, ...){
            # backtracking: maximize backtracking source counts
 	   backtracking = rank(-aux$bcount, na.last=TRUE, ties.method='min')[start],
            # centrality-based: maximize centrality
-           centrality = rank(-aux$cent, na.last=TRUE, ties.method='min')[start])
+           centrality = rank(-aux$cent, na.last=TRUE, ties.method='min')[start],
+           # gaussian source estimation: maximize discriminant function
+           gaussian = rank(-aux$delta, na.last=TRUE, ties.method='min')[start])
        # distance to correct detection
        if(!is.null(graph)){ 
          sp <- shortest_paths(graph, from=node.names[start], to=node.names[k0.hat], output='epath')$epath[[1]]
          ret$spj <- length(sp)
          ret$dist <- sum(sp$length) # grabs edge attribute 'length'
        }else{
-         warning("Distance to correct detection cannot be computed, because 'graph' is missing.")
+         if(!silent) message("Distance to correct detection cannot be computed, because 'graph' is missing.")
        }
 #      # relative error -> not available for centrality
 #      ret$r.err <- abs( res$wmean[k0.hat] - res$wmean[start] ) / res$wmean[start]

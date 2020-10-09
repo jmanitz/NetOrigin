@@ -1,10 +1,15 @@
 Package: NetOrigin
 Title: Origin Estimation for Propagation Processes on Complex Networks
-Description: Performs network-based source estimation. Different approaches are available: effective distance median, recursive backtracking, and centrality-based source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.
-Version: 1.0-3
+Description: Performs network-based source estimation. Different approaches are
+    available: effective distance median, recursive backtracking, centrality- based
+    and Gaussian source estimation. Additionally, we provide public transportation
+    network data as well as methods for data preparation, source estimation
+    performance analysis and visualization.
+Version: 1.1-1
 Authors@R: c(person("Juliane", "Manitz", email="r@manitz.org", role=c("aut", "cre")), person("Jonas", "Harbering", email="", role=c("ctb")))
 Depends: R (>= 3.2.2)
-Imports: igraph, Hmisc, colorspace
+Imports: igraph, Hmisc, colorspace, mvtnorm, corpcor
+Encoding: UTF-8
 License: GPL-3
 LazyData: true
 RoxygenNote: 7.1.1
@@ -18,15 +23,12 @@ Collate:
     'distance.r'
     'data.r'
     'data_handling.r'
+    'gaussian_estimation.r'
+    'hpd_gaussian.r'
     'infer_source_bayesian.R'
     'initial_condition_SIB_SS.R'
     'robustness.r'
 NeedsCompilation: no
-Packaged: 2018-04-19 03:48:07 UTC; jmanitz
-Author: Juliane Manitz [aut, cre],
-  Jonas Harbering [ctb]
+Packaged: 2017-01-03 09:46:24 UTC; jmanitz
+Author: Juliane Manitz [aut, cre], Jonas Harbering [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>
-Repository: CRAN
-URL: http://www.NetOrigin.manitz.org
-BugReports: https://github.com/jmanitz/NetOrigin/issues
-Date/Publication: 2018-04-20 03:12:11 UTC
