@@ -16,6 +16,7 @@ read_DB_data(file)
 Reads a data file as provided by 'Deutsche Bahn' (for internal use).
 }
 \seealso{
-Other data_handling: \code{\link{aggr_data}}
+Other data_handling: 
+\code{\link{aggr_data}()}
 }
-
+\concept{data_handling}

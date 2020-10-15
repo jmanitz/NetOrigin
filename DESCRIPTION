@@ -7,7 +7,7 @@ Depends: R (>= 3.2.2)
 Imports: igraph, Hmisc, colorspace
 License: GPL-3
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 7.1.1
 Collate: '0_helper_net.r' 'NetOrigin.r' 'origin_helper.r'
         'origin_methods.r' 'distance.r' 'data.r' 'data_handling.r'
         'robustness.r'

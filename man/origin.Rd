@@ -2,17 +2,16 @@
 % Please edit documentation in R/origin_helper.r, R/origin_methods.r
 \name{origin}
 \alias{origin}
+\alias{origin_edm}
 \alias{origin_backtracking}
 \alias{origin_centrality}
-\alias{origin_edm}
 \title{Origin Estimation for Propagation Processes on Complex Networks}
 \usage{
 origin(events, type = c("edm", "backtracking", "centrality"), ...)
 
 origin_edm(events, distance, silent = TRUE)
 
-origin_backtracking(events, graph, start_with_event_node = TRUE,
-  silent = TRUE)
+origin_backtracking(events, graph, start_with_event_node = TRUE, silent = TRUE)
 
 origin_centrality(events, graph, silent = TRUE)
 }
@@ -75,10 +74,6 @@ This is the main function for origin estimation for propagation processes on com
 For details on the methodological background, we refer to the corresponding publications.
 
 \code{origin_edm} for effective distance-median origin estimation (Manitz et al., 2016)
-
-\code{origin_backtracking} for recursive backtracking origin estimation (Manitz et al., 2016)
-
-\code{origin_centrality} for centrality-based origin estimation (Comin et al., 2011)
 }
 \examples{
 data(delayGoe)
@@ -108,18 +103,19 @@ plot(oc, start=1)
 performance(oc, start=1, graph=ptnGoe)
 
 }
-\author{
-Juliane Manitz with contributions by Jonas Harbering
-}
 \references{
 \itemize{
   \item Comin, C. H. and da Fontoura Costa, L. (2011). Identifying the starting point of a spreading process in complex networks. Physical Review E, 84. <DOI: 10.1103/PhysRevE.84.056105>
-  \item Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2016). Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Accepted at JRSS-C.
- \item Manitz, J. (2014). Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr.~Hut, ISBN 978-3-8439-1668-4. Available online: \url{http://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
+  \item Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Sch昼㸶bel (2017): Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Journal of Royal Statistical Society C (Applied Statistics), 66: 521-536.
+  \item Manitz, J. (2014). Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr.~Hut, ISBN 978-3-8439-1668-4. Available online: \url{http://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
   \item Manitz, J., Kneib, T., Schlather, M., Helbing, D. and Brockmann, D. (2014). Origin detection during food-borne disease outbreaks - a case study of the 2011 EHEC/HUS outbreak in Germany. PLoS Currents Outbreaks, 1. <DOI: 10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2>
 }
 }
 \seealso{
-Other origin-est: \code{\link{origin_multiple}}
+Other origin-est: 
+\code{\link{origin_multiple}()}
 }
-
+\author{
+Juliane Manitz with contributions by Jonas Harbering
+}
+\concept{origin-est}

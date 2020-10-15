@@ -39,11 +39,10 @@ analyze_ptn(ptnGoe)
 plot_ptn(ptnGoe)
 
 }
-\author{
-Juliane Manitz and Jonas Harbering
-}
 \seealso{
 \code{\link{delay-data}}
 }
+\author{
+Juliane Manitz and Jonas Harbering
+}
 \keyword{data}
-
