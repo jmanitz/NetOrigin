@@ -9,7 +9,7 @@ compute_mu_lambda(train.data, obs.vec, candidate.thres)
 \arguments{
 \item{train.data}{training data for 'mu' and 'lambda' list computation
 format-list, length-number of cities/nodes
-format of train.data[[i]]- number of simulated scenarios x number of cities/nodes}
+format of train.data[[i]]- number of simulated scenarios x number of cities/nodes, each entry is minimum arrival time}
 
 \item{obs.vec}{list of cities ids used as observers}
 
@@ -30,9 +30,15 @@ a list, consisting of 3 variables: mu.mat, lambda.list, poss.candidate.vec
 selected observers, for Gaussian source estimation with prior information
 }
 \examples{
-# load training data: train.data; could prepare it using 'stochastic_sib_model'
-# format-list, length-number of cities/nodes; format of train.data[[i]]- number of simulated scenarios x number of cities/nodes
+# fake training data, indicating format
+nnodes <- 851
+max.day <- 1312
+nsimu <- 300
+train.data.fake <- list()
+for (j in 1:nnodes) {
+  train.data.fake[[j]] <- matrix(sample.int(max.day, size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
+}
 obs.vec <- (1:9)
 candidate.thres <- 0.3
-mu.lambda.list <- compute_mu_lambda(train.data, obs.vec, candidate.thres)
+mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
 }

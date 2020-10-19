@@ -133,12 +133,20 @@ summary(oc)
 plot(oc, start=1)
 performance(oc, start=1, graph=ptnGoe)
 
-# load training data: train.data; could prepare it using 'stochastic_sib_model'
-# format-list, length-number of cities/nodes; format of train.data[[i]]- number of simulated scenarios x number of cities/nodes
+# fake training data, indicating format
+nnodes <- 851
+max.day <- 1312
+nsimu <- 300
+max.case.per.day <- 10
+train.data.fake <- list()
+for (j in 1:nnodes) {
+  train.data.fake[[j]] <- matrix(sample.int(max.day, size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
+}
 obs.vec <- (1:9)
 candidate.thres <- 0.3
-mu.lambda.list <- compute_mu_lambda(train.data, obs.vec, candidate.thres)
-# load matrix representing number of cases per node per day, size-number of nodes x number of day; could prepare it using 'stochastic_sib_model'
+mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+# matrix representing number of cases per node per day
+cases.node.day <- matrix(sample.int(max.case.per.day, size = nnodes*max.day, replace = TRUE), nrow = nnodes, ncol = max.day)
 nnodes <- dim(cases.node.day)[1] # number of nodes
 # fixed threshold for all nodes - 10 infected people
 thres.vec <- rep(10, nnodes)
