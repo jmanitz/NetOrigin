@@ -11,8 +11,7 @@
 \code{envirPara} Environment parameters for KwaZulu-Natal
 }
 \examples{
-library(NetOrigin)
 data(envirPara)
-y0 <- initial_condition_SIB_SS(popu, sigma, mu_B, theta, c(428))
+y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428))
 }
 \keyword{data}
