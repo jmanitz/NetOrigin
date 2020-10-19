@@ -5,22 +5,34 @@
 \alias{origin_edm}
 \alias{origin_backtracking}
 \alias{origin_centrality}
+\alias{origin_bayesian}
 \title{Origin Estimation for Propagation Processes on Complex Networks}
 \usage{
-origin(events, type = c("edm", "backtracking", "centrality"), ...)
+origin(events, type = c("edm", "backtracking", "centrality", "bayesian"), ...)
 
 origin_edm(events, distance, silent = TRUE)
 
 origin_backtracking(events, graph, start_with_event_node = TRUE, silent = TRUE)
 
 origin_centrality(events, graph, silent = TRUE)
+
+origin_bayesian(
+  events,
+  thres.vec,
+  obs.vec,
+  mu.mat,
+  lambda.list,
+  poss.candidate.vec,
+  prior,
+  use.prior = TRUE
+)
 }
 \arguments{
-\item{events}{numeric vector of event counts at a specific time point}
+\item{events}{numeric vector of event counts at a specific time point; if type is 'bayesian', 'events' is a matrix, number of nodes x time points; entries represent number of cases}
 
-\item{type}{character specifying the method, \code{'edm'}, \code{'backtracking'} and \code{'centrality'} are available.}
+\item{type}{character specifying the method, \code{'edm'}, \code{'backtracking'}, \code{'centrality'} and \code{'bayesian'} are available.}
 
-\item{...}{parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}}
+\item{...}{parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}}, \code{\link{origin_centrality}} or \code{\link{origin_centrality}}}
 
 \item{distance}{numeric matrix specifying the distance matrix (for \code{type='edm'})}
 
@@ -29,6 +41,23 @@ origin_centrality(events, graph, silent = TRUE)
 \item{graph}{igraph object specifying the underlying network graph (for \code{type='backtracking'} and \code{type='centrality'})}
 
 \item{start_with_event_node}{logical specifying whether backtracking only starts from nodes that experienced events (for \code{type='backtracking'})}
+
+\item{thres.vec}{vector, length represents number of cities/nodes, representing
+thresholds for cities/nodes that they are infected}
+
+\item{obs.vec}{list of cities ids used as observers}
+
+\item{mu.mat}{matrix- number of cities/nodes x number of observers, each row represents- 
+if this node is the source, the mean of arrival time vector}
+
+\item{lambda.list}{a length-number of cities/nodes list, each element is a number of observers x number of observers matrix-
+if a node is the source, the covariance matrix for arrival time vector}
+
+\item{poss.candidate.vec}{a boolean vector indicating if a node has the potential to be the source}
+
+\item{prior}{vector, length - number of cities/nodes, prior for cities}
+
+\item{use.prior}{boolean, TRUE or FALSE, if use prior, default TRUE}
 }
 \value{
 \code{origin_edm} returns an object of class \code{origin}, list with 
@@ -68,6 +97,8 @@ origin_centrality(events, graph, silent = TRUE)
    }
  \item \code{type = 'centrality'} centrality-based origin estimation
  }
+
+a dataframe with columns 'nodes' and 'probab', indicating nodes indices and their posteriors
 }
 \description{
 This is the main function for origin estimation for propagation processes on complex networks. Different methods are available: effective distance median (\code{'edm'}), recursive backtracking (\code{'backtracking'}), and centrality-based source estimation (\code{'centrality'}).
@@ -101,6 +132,24 @@ oc <- origin(events=delayGoe[10,-c(1:2)], type='centrality', graph=ptnGoe)
 summary(oc)
 plot(oc, start=1)
 performance(oc, start=1, graph=ptnGoe)
+
+# load training data: train.data; could prepare it using 'stochastic_sib_model'
+# format-list, length-number of cities/nodes; format of train.data[[i]]- number of simulated scenarios x number of cities/nodes
+obs.vec <- (1:9)
+candidate.thres <- 0.3
+mu.lambda.list <- compute_mu_lambda(train.data, obs.vec, candidate.thres)
+# load matrix representing number of cases per node per day, size-number of nodes x number of day; could prepare it using 'stochastic_sib_model'
+nnodes <- dim(cases.node.day)[1] # number of nodes
+# fixed threshold for all nodes - 10 infected people
+thres.vec <- rep(10, nnodes)
+# flat/non-informative prior
+prior <- rep(1, nnodes) 
+result2.df <- origin(events = cases.node.day, type = "bayesian",
+                     thres.vec = thres.vec,
+                     obs.vec = obs.vec,
+                     mu.mat=mu.lambda.list$mu.mat, lambda.list = mu.lambda.list$lambda.list, 
+                     poss.candidate.vec=mu.lambda.list$poss.candidate.vec,
+                     prior=prior, use.prior=TRUE)
 
 }
 \references{

@@ -23,9 +23,8 @@
 #' @import corpcor
 #'
 #' @examples
-#' library(NetOrigin)
-#' # load training data
-#' load('.../train_data.rda')
+#' # load training data: train.data; could prepare it using 'stochastic_sib_model'
+#' # format-list, length-number of cities/nodes; format of train.data[[i]]- number of simulated scenarios x number of cities/nodes
 #' obs.vec <- (1:9)
 #' candidate.thres <- 0.3
 #' mu.lambda.list <- compute_mu_lambda(train.data, obs.vec, candidate.thres)

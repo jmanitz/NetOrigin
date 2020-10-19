@@ -1,9 +1,9 @@
 
 #' Stochastic SIB model for infected cases simulation
 #'
-#' \code{SIB_SS} Stochastic SIB model for infected cases simulation
+#' \code{stochastic_sib_model} Stochastic SIB model for infected cases simulation
 #'
-#' @rdname SIB_SS
+#' @rdname stochastic_sib_model
 #'
 #' @param mu population natality and mortality rate (day^-1)
 #' @param beta contact rate 
@@ -21,22 +21,21 @@
 #' @param fluxes matrix, number of nodes x number of nodes 
 #'        where each row contains the probabilities a person travels from the given city (by Row Index) to another city (by Column Index).
 #' @param time_sim time steps for simulation, e.g., seq(0, 100, 0.1)
-#' @param y0 initial condition for SIB_SS, output of 'initial_condition_SIB_SS'
+#' @param y0 initial condition for stochastic_sib_model, output of 'initial_condition_sib_model'
 #'
 #' @return a matrix, nnodes x number of time steps, representing number of new cases at each node, each time step
 #'
 #' @examples
-#' library(NetOrigin)
 #' data(envirPara)
-#' y0 <- initial_condition_SIB_SS(popu, sigma, mu_B, theta, c(428))
+#' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428))
 #' time_sim=seq(0, 100, by=0.1)
-#' simu.list = SIB_SS(mu = mu, beta = beta, rho = rho, sigma = sigma, gamma = gamma,
+#' simu.list = stochastic_sib_model(mu = mu, beta = beta, rho = rho, sigma = sigma, gamma = gamma,
 #'                    alpha = alpha, mu_B = mu_B, theta = theta, nnodes = length(POP_node), POP_node = popu,
 #'                    fluxes = humanmob.mass, time_sim = time_sim, y0 = y0)
 #' @export
 
 
-SIB_SS <- function(mu, beta, rho, sigma, gamma,
+stochastic_sib_model <- function(mu, beta, rho, sigma, gamma,
                    alpha, mu_B, m = 0.3, theta, nnodes, POP_node, fluxes, 
                    time_sim, y0) {
   # m is gravity parameter

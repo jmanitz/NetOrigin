@@ -14,18 +14,19 @@ origin <- function(events, ...) UseMethod("origin")
 #'   \item Manitz, J., Kneib, T., Schlather, M., Helbing, D. and Brockmann, D. (2014). Origin detection during food-borne disease outbreaks - a case study of the 2011 EHEC/HUS outbreak in Germany. PLoS Currents Outbreaks, 1. <DOI: 10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2>
 #' }
 #'
-#' @param events numeric vector of event counts at a specific time point
-#' @param type character specifying the method, \code{'edm'}, \code{'backtracking'} and \code{'centrality'} are available.
-#' @param ... parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}
+#' @param events numeric vector of event counts at a specific time point; if type is 'bayesian', 'events' is a matrix, number of nodes x time points; entries represent number of cases
+#' @param type character specifying the method, \code{'edm'}, \code{'backtracking'}, \code{'centrality'} and \code{'bayesian'} are available.
+#' @param ... parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}}, \code{\link{origin_centrality}} or \code{\link{origin_centrality}}
 #'
 #' @family origin-est
 #' @export
-origin <- function(events, type=c('edm', 'backtracking', 'centrality'), ...){
+origin <- function(events, type=c('edm', 'backtracking', 'centrality', 'bayesian'), ...){
     type <- match.arg(type)
     switch(type,
            edm = origin_edm(events = events, ...),
            backtracking = origin_backtracking(events = events, ...),
-           centrality = origin_centrality(events = events, ...))
+           centrality = origin_centrality(events = events, ...),
+           bayesian = origin_bayesian(events = events, ...))
 }
 
 

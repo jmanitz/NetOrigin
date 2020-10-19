@@ -1,9 +1,9 @@
 
 #' Provide Initial Condition for Function SIB_SS
 #'
-#' \code{initial_condition_SIB_SS} Compute Initial Condition for Function SIB_SS
+#' \code{initial_condition_sib_model} Compute Initial Condition for Function SIB_SS
 #'
-#' @rdname initial_condition_SIB_SS
+#' @rdname initial_condition_sib_model
 #'
 #' @param POP_node vector, length represents number of cities/nodes; vector represents
 #'        population at each node
@@ -22,13 +22,12 @@
 #'         Row 2: number of infected people, but representing cumulative cases
 #'
 #' @examples
-#' library(NetOrigin)
 #' data(envirPara)
-#' y0 <- initial_condition_SIB_SS(popu, sigma, mu_B, theta, c(428))
+#' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428))
 #' @export
 
 
-initial_condition_SIB_SS <- function(POP_node, sigma, mu_B, theta, node_in, in_prevalence=0.001) {
+initial_condition_sib_model <- function(POP_node, sigma, mu_B, theta, node_in, in_prevalence=0.001) {
   # calculate nnodes
   nnodes = length(POP_node)
   #initial condition row: state variables, column: node
