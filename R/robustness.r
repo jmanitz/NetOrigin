@@ -36,11 +36,9 @@ robustness <- function(x, ...) UseMethod("robustness")
 #' # run robustness analysis
 #' r5 <- robustness(x=dat, type='edm', prop=0.5, n=10, distance=eff)
 #' summary(r5)
-#' plot(r5)
 #'
 #' # compare results
 #' r9 <- robustness(x=dat, type='edm', prop=0.9, n=10, distance=eff)
-#' plot(r9, add=TRUE, col='gray')
 #'
 #' @rdname robustness
 #' @seealso \code{\link{robustness-methods}}
