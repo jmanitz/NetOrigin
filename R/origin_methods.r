@@ -328,6 +328,8 @@ TimeMin <- function(num.cases, thres = NA){
 #' @param use.prior boolean, TRUE or FALSE, if use prior, default TRUE
 #'
 #' @return a dataframe with columns 'nodes' and 'probab', indicating nodes indices and their posteriors
+#' 
+#' @import mvtnorm
 #'
 #' @examples
 #' # fake training data, indicating format
