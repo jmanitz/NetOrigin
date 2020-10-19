@@ -54,7 +54,6 @@ res <- origin(events=delayGoe[10,-c(1:2)], type='centrality', graph=ptnGoe)
 res
 
 summary(res)
-plot(res, start=1)
 performance(res, start=1, graph=ptnGoe)
 
 }
