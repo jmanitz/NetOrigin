@@ -12,7 +12,7 @@
 #' @param mu_B death rate of V.cholerae in the aquatic environment (day^-1)
 #' @param theta contamination rate 
 #' @param node_in index/indices for initial infected node(s)
-#' @param in_prevalence initial prevalence of symptomatic infected in a node, default is 0.1%
+#' @param in_prevalence initial prevalence of symptomatic infected in a node, default is 0.1\%
 #'
 #' @return a 5 x number of nodes matrix, each row represents the following for all the nodes:
 #'         Row 1: number of suspectible people, i.e., population excpect infected and recovered for each node;

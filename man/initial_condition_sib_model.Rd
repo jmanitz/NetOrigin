@@ -26,7 +26,7 @@ population at each node}
 
 \item{node_in}{index/indices for initial infected node(s)}
 
-\item{in_prevalence}{initial prevalence of symptomatic infected in a node, default is 0.1%}
+\item{in_prevalence}{initial prevalence of symptomatic infected in a node, default is 0.1\%}
 }
 \value{
 a 5 x number of nodes matrix, each row represents the following for all the nodes:
