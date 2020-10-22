@@ -118,8 +118,8 @@ summary.robustness <- function(object, x = object, ...){
 #' @param y not used; default \code{NULL}
 #' 
 #' @rdname robustness-methods
-#' @importFrom graphics abline legend lines points text
-# #' @export
+#' @importFrom graphics abline axis legend par plot points rect text title
+#' @export
 plot.robustness <- function(x, y=NULL, add = FALSE, ...){
     # lines plot
     if(add){ 

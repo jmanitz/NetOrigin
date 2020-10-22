@@ -13,7 +13,7 @@
 
 \method{summary}{robustness}(object, x = object, ...)
 
-plot.robustness(x, y = NULL, add = FALSE, ...)
+\method{plot}{robustness}(x, y = NULL, add = FALSE, ...)
 }
 \arguments{
 \item{x}{\code{data.frame} obtained by \code{\link{robustness}}, robustness estimation object for source estimation from function \code{\link{robustness}}}

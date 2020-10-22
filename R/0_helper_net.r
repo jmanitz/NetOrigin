@@ -66,7 +66,7 @@ analyze_ptn <- function(g){
 #' plot_ptn(ptnGoe)
 #' 
 #' @import igraph
-#' @import colorspace
+#' @importFrom colorspace sequential_hcl
 #' @family network helper
 #' @export
 plot_ptn <- function(g, color.coding = NULL, color.scheme = rev(sequential_hcl(5)), legend = FALSE, ...){
