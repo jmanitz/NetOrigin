@@ -40,13 +40,46 @@ Then, load the package
 library("NetOrigin")
 ```
 
-### Example
+### Example: Effective Distance
 
-<TODO>
+``` {r}
+data(delayGoe)
 
-### Contributions 
+# compute effective distance
+data(ptnGoe)
+goenet <- igraph::as_adjacency_matrix(ptnGoe, sparse=FALSE)
+p <- goenet/rowSums(goenet)
+eff <- eff_dist(p)
 
-<TODO>
+# apply effective distance median source estimation
+om <- origin(events=delayGoe[10,-c(1:2)], type='edm', distance=eff)
+summary(om)
+plot(om, 'mdist', start=1)
+plot(om, 'wvar', start=1)
+performance(om, start=1, graph=ptnGoe)
+```
+
+### Example: Backtracking
+
+``` {r}
+# backtracking origin estimation (Manitz et al., 2016)
+ob <- origin(events=delayGoe[10,-c(1:2)], type='backtracking', graph=ptnGoe)
+summary(ob)
+plot(ob, start=1)
+performance(ob, start=1, graph=ptnGoe)
+```
+
+### Example: Multiple Origins
+
+``` {r}
+data(ptnAth)
+origin_multiple(events=delayAth[10,-c(1:2)], type='backtracking', graph=ptnAth, no=2)
+# edm
+athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
+p <- athnet/rowSums(athnet)
+eff <- eff_dist(p)
+origin_multiple(events=delayAth[10,-c(1:2)], type='edm', graph=ptnAth, no=2, distance=eff)
+```
 
 ### References
 
