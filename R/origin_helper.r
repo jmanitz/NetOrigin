@@ -9,8 +9,8 @@ origin <- function(events, ...) UseMethod("origin")
 #'
 #' @references \itemize{
 #'   \item Comin, C. H. and da Fontoura Costa, L. (2011). Identifying the starting point of a spreading process in complex networks. Physical Review E, 84. <DOI: 10.1103/PhysRevE.84.056105>
-#'   \item Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2016). Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Accepted at JRSS-C.
-#'  \item Manitz, J. (2014). Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr.~Hut, ISBN 978-3-8439-1668-4. Available online: \url{http://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
+#'   \item Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2017): Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Journal of Royal Statistical Society C (Applied Statistics), 66: 521-536.
+#'   \item Manitz, J. (2014). Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr.~Hut, ISBN 978-3-8439-1668-4. Available online: \url{http://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
 #'   \item Manitz, J., Kneib, T., Schlather, M., Helbing, D. and Brockmann, D. (2014). Origin detection during food-borne disease outbreaks - a case study of the 2011 EHEC/HUS outbreak in Germany. PLoS Currents Outbreaks, 1. <DOI: 10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2>
 #' }
 #'
@@ -35,10 +35,10 @@ origin <- function(events, type=c('edm', 'backtracking', 'centrality', 'bayesian
 # add generic 
 #print <- function(x) UseMethod("print")
 #' @name origin-methods
-#' @aliases print.origin
-#' @aliases summary
-#' @aliases plot
-#' @aliases performance
+# #' @aliases print.origin
+# #' @aliases summary
+# #' @aliases plot
+# #' @aliases performance
 #'
 #' @title methods for origin estimation objects of class \code{origin}
 #' 
@@ -84,6 +84,8 @@ summary.origin <- function(object, x = object, ...){
 #' @param start numeric, giving the node of the true origin
 #'
 #' @rdname origin-methods
+#' 
+#' @importFrom graphics abline axis legend par plot points rect text title
 #' @export
 plot.origin <- function(x, y='id', start, ...){
     # extract estimation result

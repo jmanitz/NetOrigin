@@ -54,7 +54,7 @@ perfGoe <- ldply(Map(performance, x = res, start = as.list(delayGoe$k0),
 } 
 }
 \references{
-Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2016). Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Accepted at JRSS-C.
+Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2017): Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Journal of Royal Statistical Society C (Applied Statistics), 66: 521-536.
 }
 \seealso{
 \code{\link{ptn-data}}

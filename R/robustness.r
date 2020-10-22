@@ -94,7 +94,7 @@ robustness <- function(x, type=c('edm', 'backtracking', 'centrality'), prop, n=1
 #'
 #' @seealso \code{\link{robustness}}
 #' @rdname robustness-methods
-#' @export
+# #' @export
 print.robustness <- function(x, ...){
     ret <- data.frame(time = attr(x,'row.names'), estimate = x$est, robustness = x$rob)
     print(ret, ...)
@@ -105,7 +105,7 @@ print.robustness <- function(x, ...){
 #' @param object object of class \code{\link{origin}}, origin estimation object from function \code{origin_xxx}; passed to \code{x}
 #' 
 #' @rdname robustness-methods
-#' @export
+# #' @export
 summary.robustness <- function(object, x = object, ...){
     ret <- data.frame(time = attr(x,'row.names'), estimate = x$est, robustness = x$rob)
     summary(ret, ...)
@@ -116,7 +116,7 @@ summary.robustness <- function(object, x = object, ...){
 #' @param y not used; default \code{NULL}
 #' 
 #' @rdname robustness-methods
-#' @importFrom graphics abline legend lines points text
+#' @importFrom graphics abline axis legend par plot points rect text title
 #' @export
 plot.robustness <- function(x, y=NULL, add = FALSE, ...){
     # lines plot

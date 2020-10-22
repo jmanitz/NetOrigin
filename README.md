@@ -5,11 +5,20 @@
 (Linux)](https://travis-ci.org/jmanitz/NetOrigin.svg?branch=master)](https://travis-ci.org/jmanitz/NetOrigin)
 [![Build status
 (Windows)](https://ci.appveyor.com/api/projects/status/github/jmanitz/NetOrigin?branch=master&svg=true)](https://ci.appveyor.com/project/jmanitz/NetOrigin/branch/master)
-[![CRAN Status
-Badge](http://www.r-pkg.org/badges/version/NetOrigin)](https://CRAN.R-project.org/package=NetOrigin)
 [![Coverage
 Status](https://coveralls.io/repos/github/jmanitz/NetOrigin/badge.svg?branch=master)](https://coveralls.io/github/jmanitz/NetOrigin?branch=master)
-[![](http://cranlogs.r-pkg.org/badges/NetOrigin)](https://CRAN.R-project.org/package=NetOrigin)
+![GitHub repo
+size](https://img.shields.io/github/repo-size/jmanitz/NetOrigin)
+![GitHub issues](https://img.shields.io/github/issues/jmanitz/NetOrigin)
+
+[![CRAN Status
+Badge](http://www.r-pkg.org/badges/version/NetOrigin)](https://CRAN.R-project.org/package=NetOrigin)
+[![CRAN
+Downloads](http://cranlogs.r-pkg.org/badges/NetOrigin)](https://CRAN.R-project.org/package=NetOrigin)
+![CRAN License](https://img.shields.io/cran/l/NetOrigin) ![CRAN
+dependencies
+status](https://img.shields.io/librariesio/release/CRAN/NetOrigin)
+![Website](https://img.shields.io/website?url=http%3A%2F%2FNetOrigin.manitz.org%2F)
 
 Performs network-based source estimation. Different approaches are
 available: effective distance median, recursive backtracking, and
@@ -48,10 +57,10 @@ library("NetOrigin")
 
 ### References
 
-  - Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel
-    (2016). Source Estimation for Propagation Processes on Complex
-    Networks with an Application to Delays in Public Transportation
-    Systems. Accepted at JRSS-C.
+  - Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2017): 
+  Source Estimation for Propagation Processes on Complex Networks with an 
+  Application to Delays in Public Transportation Systems. 
+  Journal of Royal Statistical Society C (Applied Statistics), 66: 521–536.
 
   - Manitz, J., Kneib, T., Schlather, M., Helbing, D. and Brockmann, D.
     (2014) Origin detection during food-borne disease outbreaks - a case
