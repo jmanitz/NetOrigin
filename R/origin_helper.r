@@ -169,6 +169,7 @@ performance <- function(x, ...) UseMethod("performance")
 #' res
 #'
 #' summary(res)
+#' plot(res, start=1)
 #' performance(res, start=1, graph=ptnGoe)
 #'
 #' @import igraph
