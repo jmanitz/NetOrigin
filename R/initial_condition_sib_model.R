@@ -22,8 +22,9 @@
 #'         Row 2: number of infected people, but representing cumulative cases
 #'
 #' @examples
-#' data(envirPara)
-#' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428))
+#' data(envirparaList)
+#' y0 <- initial_condition_sib_model(envirparaList$popu, envirparaList$sigma, 
+#'   envirparaList$mu_B, envirparaList$theta, c(428))
 #' @export
 
 

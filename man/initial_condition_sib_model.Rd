@@ -40,6 +40,7 @@ a 5 x number of nodes matrix, each row represents the following for all the node
 \code{initial_condition_sib_model} Compute Initial Condition for Function SIB_SS
 }
 \examples{
-data(envirPara)
-y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428))
+data(envirparaList)
+y0 <- initial_condition_sib_model(envirparaList$popu, envirparaList$sigma, 
+  envirparaList$mu_B, envirparaList$theta, c(428))
 }

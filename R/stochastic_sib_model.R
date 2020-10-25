@@ -16,7 +16,7 @@
 #' @param m parameter for infection force, default value is 0.3
 #' @param theta contamination rate 
 #' @param nnodes number of nodes/cities
-#' @param POP_nodes vector, length represents number of cities/nodes; vector represents
+#' @param POP_node vector, length represents number of cities/nodes; vector represents
 #'        population at each node
 #' @param fluxes matrix, number of nodes x number of nodes 
 #'        where each row contains the probabilities a person travels from the given city (by Row Index) to another city (by Column Index).
@@ -28,13 +28,17 @@
 #' @importFrom stats runif
 #'
 #' @examples
-#' data(envirPara)
-#' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428, 432))
+#' data(envirparaList)
+#' y0 <- initial_condition_sib_model(envirparaList$popu, envirparaList$sigma, 
+#'   envirparaList$mu_B, envirparaList$theta, c(428, 432))
 #' time_sim=seq(0, 1, by=0.1)
-#' simu.list = stochastic_sib_model(mu = mu, beta = beta, rho = rho, 
-#'                    sigma = sigma, gamma = gamma, alpha = alpha, 
-#'                    mu_B = mu_B, theta = theta, nnodes = length(popu), 
-#'                    POP_node = popu, fluxes = humanmob.mass, 
+#' simu.list = stochastic_sib_model(mu = envirparaList$mu, beta = envirparaList$beta, 
+#'                    rho = envirparaList$rho, sigma = envirparaList$sigma, 
+#'                    gamma = envirparaList$gamma, alpha = envirparaList$alpha, 
+#'                    mu_B = envirparaList$mu_B, m = 0.3,
+#'                    theta = envirparaList$theta, 
+#'                    nnodes = length(envirparaList$popu), POP_node = envirparaList$popu, 
+#'                    fluxes = envirparaList$humanmob.mass, 
 #'                    time_sim = time_sim, y0 = y0)
 #' @export
 
