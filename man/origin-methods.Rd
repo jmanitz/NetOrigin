@@ -3,9 +3,6 @@
 \name{origin-methods}
 \alias{origin-methods}
 \alias{print.origin}
-\alias{summary}
-\alias{plot}
-\alias{performance}
 \alias{summary.origin}
 \alias{plot.origin}
 \alias{performance.origin}
@@ -15,7 +12,7 @@
 
 \method{summary}{origin}(object, x = object, ...)
 
-plot.origin(x, y = "id", start, ...)
+\method{plot}{origin}(x, y = "id", start, ...)
 
 \method{performance}{origin}(x, start, graph = NULL, ...)
 }

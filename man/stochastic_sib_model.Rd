@@ -63,7 +63,9 @@ a matrix, nnodes x number of time steps, representing number of new cases at eac
 data(envirPara)
 y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(428, 432))
 time_sim=seq(0, 1, by=0.1)
-simu.list = stochastic_sib_model(mu = mu, beta = beta, rho = rho, sigma = sigma, gamma = gamma,
-                   alpha = alpha, mu_B = mu_B, theta = theta, nnodes = length(popu), POP_node = popu,
-                   fluxes = humanmob.mass, time_sim = time_sim, y0 = y0)
+simu.list = stochastic_sib_model(mu = mu, beta = beta, rho = rho, 
+                   sigma = sigma, gamma = gamma, alpha = alpha, 
+                   mu_B = mu_B, theta = theta, nnodes = length(popu), 
+                   POP_node = popu, fluxes = humanmob.mass, 
+                   time_sim = time_sim, y0 = y0)
 }

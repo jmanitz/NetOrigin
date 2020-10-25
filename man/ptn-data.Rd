@@ -30,12 +30,10 @@ Public transportation network datasets from LinTim software (Integrated Optimiza
 \examples{
 # Athens metro system 
 data(ptnAth)
-analyze_net(ptnAth)
 plot_ptn(ptnAth)
 
 # Goettingen bus system 
 data(ptnGoe)
-analyze_net(ptnGoe)
 plot_ptn(ptnGoe)
 
 }

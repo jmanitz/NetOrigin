@@ -36,7 +36,8 @@ max.day <- 1312
 nsimu <- 300
 train.data.fake <- list()
 for (j in 1:nnodes) {
-  train.data.fake[[j]] <- matrix(sample.int(max.day, size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
+  train.data.fake[[j]] <- matrix(sample.int(max.day, 
+    size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
 }
 obs.vec <- (1:9)
 candidate.thres <- 0.3
