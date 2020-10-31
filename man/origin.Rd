@@ -154,6 +154,9 @@ nnodes <- dim(cases.node.day)[1] # number of nodes
 thres.vec <- rep(10, nnodes)
 # flat/non-informative prior
 prior <- rep(1, nnodes) 
+# the following result shows potential sources with posterior probabilities
+# in descending order, i.e., the first row indicates the potential source
+# with largest probability
 result2.df <- origin(events = cases.node.day, type = "bayesian",
                      thres.vec = thres.vec,
                      obs.vec = obs.vec,
