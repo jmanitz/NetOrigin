@@ -28,18 +28,28 @@
 #' @importFrom stats runif
 #'
 #' @examples
-#' data(envirparaList)
-#' y0 <- initial_condition_sib_model(envirparaList$popu, envirparaList$sigma, 
-#'   envirparaList$mu_B, envirparaList$theta, c(428, 432))
-#' time_sim=seq(0, 1, by=0.1)
-#' simu.list = stochastic_sib_model(mu = envirparaList$mu, beta = envirparaList$beta, 
-#'                    rho = envirparaList$rho, sigma = envirparaList$sigma, 
-#'                    gamma = envirparaList$gamma, alpha = envirparaList$alpha, 
-#'                    mu_B = envirparaList$mu_B, m = 0.3,
-#'                    theta = envirparaList$theta, 
-#'                    nnodes = length(envirparaList$popu), POP_node = envirparaList$popu, 
-#'                    fluxes = envirparaList$humanmob.mass, 
-#'                    time_sim = time_sim, y0 = y0)
+#' set.seed(2020)
+#' popu <- rep(20000, 10)
+#' sigma <- 0.05
+#' mu_B <- 0.2
+#' theta_max <- 16
+#' theta <- runif(10, 0.1, 0.9) * theta_max
+#' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(3))
+#' time_sim <- seq(0, 1, by=0.1)
+#' mu <- 4e-05
+#' beta_max <- 1 
+#' rho <- 0
+#' beta <- runif(10, 0.1, 0.9) * beta_max
+#' gamma <- 0.2
+#' alpha <- 0
+#' humanmob.mass <- matrix(runif(100, 0.1, 0.9), 10, 10)
+#' diag(humanmob.mass) <- 0
+#' for (j in 1:10) {
+#'   humanmob.mass[j, ] <- humanmob.mass[j, ]/sum(humanmob.mass[j, ])
+#' }
+#' simu.list = stochastic_sib_model(mu = mu, beta = beta, rho = rho, sigma = sigma, gamma = gamma,
+#'                    alpha = alpha, mu_B = mu_B, theta = theta, nnodes = 10, POP_node = popu,
+#'                    fluxes = humanmob.mass, time_sim = time_sim, y0 = y0)
 #' @export
 
 

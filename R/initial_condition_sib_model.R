@@ -22,9 +22,13 @@
 #'         Row 2: number of infected people, but representing cumulative cases
 #'
 #' @examples
-#' data(envirparaList)
-#' y0 <- initial_condition_sib_model(envirparaList$popu, envirparaList$sigma, 
-#'   envirparaList$mu_B, envirparaList$theta, c(428))
+#' set.seed(2020)
+#' popu <- rep(20000, 10)
+#' sigma <- 0.05
+#' mu_B <- 0.2
+#' theta_max <- 16
+#' theta <- runif(10, 0.1, 0.9) * theta_max
+#' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(3))
 #' @export
 
 
