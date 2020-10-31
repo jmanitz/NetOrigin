@@ -29,7 +29,6 @@ NULL
 #' @examples
 #' # Athens metro system 
 #' data(ptnAth)
-#' analyze_ptn(ptnAth)
 #' plot_ptn(ptnAth)
 #'
 NULL
@@ -48,7 +47,6 @@ NULL
 #' @examples
 #' # Goettingen bus system 
 #' data(ptnGoe)
-#' analyze_ptn(ptnGoe)
 #' plot_ptn(ptnGoe)
 #'
 NULL
