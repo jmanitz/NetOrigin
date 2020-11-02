@@ -12,6 +12,7 @@
 #' @param candidate.thres threshold to determine if a node/city could be a candidate for source
 #'        e.g. if we set this number to be 0.2, if in [x] simulated scenarios, there are only 10 percent
 #'        scenarios a node [a] is infected, we do not think [a] is a potential source
+#' @param print.setpara print notifying message every how many iterations
 #'
 #' @return a list, consisting of 3 variables: mu.mat, lambda.list, poss.candidate.vec
 #'         mu.mat: matrix- number of cities/nodes x number of observers, each row represents- 
@@ -24,21 +25,23 @@
 #'
 #' @examples
 #' # fake training data, indicating format
-#' nnodes <- 851
-#' max.day <- 1312
-#' nsimu <- 300
+#' nnodes <- 10
+#' max.day <- 20
+#' nsimu <- 10
 #' train.data.fake <- list()
 #' for (j in 1:nnodes) {
 #'   train.data.fake[[j]] <- matrix(sample.int(max.day, 
 #'     size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
 #' }
+#' train.data.fake[[1]][1,1] <- NA
 #' obs.vec <- (1:9)
-#' candidate.thres <- 0.3
-#' mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+#' candidate.thres <- 0.9
+#' mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres, 5)
 #' @export
 
 
-compute_mu_lambda <- function(train.data, obs.vec, candidate.thres){  
+compute_mu_lambda <- function(train.data, obs.vec, candidate.thres, 
+  print.setpara){  
   ## constant parameters
   nreal <- dim(train.data[[1]])[1]
   nnodes <- dim(train.data[[1]])[2]
@@ -78,7 +81,7 @@ compute_mu_lambda <- function(train.data, obs.vec, candidate.thres){
     } else {
       lambda.list[[j]] <- NA
     }
-    if (j %% 100 == 0) {
+    if (j %% print.setpara == 0) {
       cat(paste0("This is loop: ", toString(j), "\n"))
     }
   } # end of for loop

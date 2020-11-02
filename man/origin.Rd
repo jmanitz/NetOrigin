@@ -134,18 +134,19 @@ plot(oc, start=1)
 performance(oc, start=1, graph=ptnGoe)
 
 # fake training data, indicating format
-nnodes <- 851
-max.day <- 1312
-nsimu <- 300
+nnodes <- 10
+max.day <- 20
+nsimu <- 10
 max.case.per.day <- 10
 train.data.fake <- list()
 for (j in 1:nnodes) {
   train.data.fake[[j]] <- matrix(sample.int(max.day, 
     size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
 }
+train.data.fake[[1]][1,1] <- NA
 obs.vec <- (1:9)
-candidate.thres <- 0.3
-mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+candidate.thres <- 0.9
+mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres, 5)
 # matrix representing number of cases per node per day
 cases.node.day <- matrix(sample.int(max.case.per.day, 
   size = nnodes*max.day, replace = TRUE), nrow = nnodes, ncol = max.day)
@@ -154,6 +155,9 @@ nnodes <- dim(cases.node.day)[1] # number of nodes
 thres.vec <- rep(10, nnodes)
 # flat/non-informative prior
 prior <- rep(1, nnodes) 
+# the following result shows potential sources with posterior probabilities
+# in descending order, i.e., the first row indicates the potential source
+# with largest probability
 result2.df <- origin(events = cases.node.day, type = "bayesian",
                      thres.vec = thres.vec,
                      obs.vec = obs.vec,
