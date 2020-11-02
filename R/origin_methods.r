@@ -337,9 +337,9 @@ TimeMin <- function(num.cases, thres = NA){
 #'
 #' @examples
 #' # fake training data, indicating format
-#' nnodes <- 851
-#' max.day <- 1312
-#' nsimu <- 300
+#' nnodes <- 10
+#' max.day <- 20
+#' nsimu <- 10
 #' max.case.per.day <- 10
 #' train.data.fake <- list()
 #' for (j in 1:nnodes) {
@@ -380,8 +380,8 @@ origin_bayesian <- function(events,
   nnodes <- dim(cases.node.day)[1]
   
   ## extract 'observed.time.all'
-  observed.time.all <- rep(NA, 851)
-  for (node.num in 1:851) {
+  observed.time.all <- rep(NA, nnodes)
+  for (node.num in 1:nnodes) {
     if (length(which(cases.node.day[node.num, ] > thres.vec[node.num])) > 0) {
       observed.time.all[node.num] <- which(cases.node.day[node.num, ] > thres.vec[node.num])[1]
     } else {
@@ -390,7 +390,7 @@ origin_bayesian <- function(events,
   }
   ## extract info from 'poss.candidate.vec'
   num.source.candidate = sum(poss.candidate.vec)
-  nodes.canbe.detected <- (1:851)[poss.candidate.vec]
+  nodes.canbe.detected <- (1:nnodes)[poss.candidate.vec]
   ## prepare 'prob.vec'
   logprob.vec <- rep(NA, num.source.candidate)
   for (j in 1:num.source.candidate) {

@@ -24,9 +24,9 @@
 #'
 #' @examples
 #' # fake training data, indicating format
-#' nnodes <- 851
-#' max.day <- 1312
-#' nsimu <- 300
+#' nnodes <- 10
+#' max.day <- 20
+#' nsimu <- 10
 #' train.data.fake <- list()
 #' for (j in 1:nnodes) {
 #'   train.data.fake[[j]] <- matrix(sample.int(max.day, 
