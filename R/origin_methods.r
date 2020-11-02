@@ -346,9 +346,10 @@ TimeMin <- function(num.cases, thres = NA){
 #'   train.data.fake[[j]] <- matrix(sample.int(max.day, 
 #'     size = nsimu*nnodes, replace = TRUE), nrow = nsimu, ncol = nnodes)
 #' }
+#' train.data.fake[[1]][1,1] <- NA
 #' obs.vec <- (1:9)
-#' candidate.thres <- 0.3
-#' mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+#' candidate.thres <- 0.9
+#' mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres, 5)
 #' # matrix representing number of cases per node per day
 #' cases.node.day <- matrix(sample.int(max.case.per.day, 
 #'   size = nnodes*max.day, replace = TRUE), nrow = nnodes, ncol = max.day)
