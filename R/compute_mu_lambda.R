@@ -4,6 +4,7 @@
 #' selected observers, for Gaussian source estimation with prior information
 #'
 #' @rdname compute_mu_lambda
+#' @author Jun Li
 #'
 #' @param train.data training data for 'mu' and 'lambda' list computation
 #'        format-list, length-number of cities/nodes
@@ -20,13 +21,11 @@
 #'         if a node is the source, the covariance matrix for arrival time vector;
 #'         poss.candidate.vec: a boolean vector indicating if a node has the potential to be the source
 #' 
-#' @import corpcor
-#'
 #' @examples
 #' # fake training data, indicating format
 #' nnodes <- 851
 #' max.day <- 1312
-#' nsimu <- 300
+#' nsimu <- 100
 #' train.data.fake <- list()
 #' for (j in 1:nnodes) {
 #'   train.data.fake[[j]] <- matrix(sample.int(max.day, 
@@ -35,9 +34,9 @@
 #' obs.vec <- (1:9)
 #' candidate.thres <- 0.3
 #' mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+#' 
+#' @import corpcor
 #' @export
-
-
 compute_mu_lambda <- function(train.data, obs.vec, candidate.thres){  
   ## constant parameters
   nreal <- dim(train.data[[1]])[1]

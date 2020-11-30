@@ -42,16 +42,13 @@ origin_bayesian(
 
 \item{start_with_event_node}{logical specifying whether backtracking only starts from nodes that experienced events (for \code{type='backtracking'})}
 
-\item{thres.vec}{vector, length represents number of cities/nodes, representing
-thresholds for cities/nodes that they are infected}
+\item{thres.vec}{vector, length represents number of cities/nodes, representing thresholds for cities/nodes that they are infected}
 
 \item{obs.vec}{list of cities ids used as observers}
 
-\item{mu.mat}{matrix- number of cities/nodes x number of observers, each row represents- 
-if this node is the source, the mean of arrival time vector}
+\item{mu.mat}{matrix- number of cities/nodes x number of observers, each row represents - if this node is the source, the mean of arrival time vector}
 
-\item{lambda.list}{a length-number of cities/nodes list, each element is a number of observers x number of observers matrix-
-if a node is the source, the covariance matrix for arrival time vector}
+\item{lambda.list}{a length-number of cities/nodes list, each element is a number of observers x number of observers matrix - if a node is the source, the covariance matrix for arrival time vector}
 
 \item{poss.candidate.vec}{a boolean vector indicating if a node has the potential to be the source}
 
@@ -136,7 +133,7 @@ performance(oc, start=1, graph=ptnGoe)
 # fake training data, indicating format
 nnodes <- 851
 max.day <- 1312
-nsimu <- 300
+nsimu <- 100
 max.case.per.day <- 10
 train.data.fake <- list()
 for (j in 1:nnodes) {
@@ -176,5 +173,7 @@ Other origin-est:
 }
 \author{
 Juliane Manitz with contributions by Jonas Harbering
+
+Jun Li
 }
 \concept{origin-est}

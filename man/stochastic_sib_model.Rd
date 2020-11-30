@@ -83,3 +83,6 @@ simu.list = stochastic_sib_model(mu = mu, beta = beta, rho = rho, sigma = sigma,
                    alpha = alpha, mu_B = mu_B, theta = theta, nnodes = 10, POP_node = popu,
                    fluxes = humanmob.mass, time_sim = time_sim, y0 = y0)
 }
+\author{
+Jun Li
+}

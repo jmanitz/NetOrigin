@@ -21,10 +21,10 @@ Collate:
     'robustness.r'
     'stochastic_sib_model.R'
 NeedsCompilation: no
-Packaged: 2020-10-30 03:48:07 UTC; jmanitz
+Packaged: 2020-11-30 03:48:07 UTC; jmanitz
 Author: Juliane Manitz [aut, cre],
-  Jonas Harbering [ctb]
+  Jonas Harbering [ctb], Jun Li [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>
 Repository: CRAN
-URL: http://www.NetOrigin.manitz.org
+URL: http://netorigin.manitz.org/
 BugReports: https://github.com/jmanitz/NetOrigin/issues

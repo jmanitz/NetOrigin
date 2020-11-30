@@ -4,7 +4,8 @@
 #' \code{stochastic_sib_model} Stochastic SIB model for infected cases simulation
 #'
 #' @rdname stochastic_sib_model
-#'
+#' @author Jun Li
+#' 
 #' @param mu population natality and mortality rate (day^-1)
 #' @param beta contact rate 
 #' @param rho immunity loss rate (day^-1)

@@ -48,3 +48,6 @@ theta_max <- 16
 theta <- runif(10, 0.1, 0.9) * theta_max
 y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(3))
 }
+\author{
+Jun Li
+}

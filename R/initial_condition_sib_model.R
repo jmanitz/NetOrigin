@@ -4,7 +4,8 @@
 #' \code{initial_condition_sib_model} Compute Initial Condition for Function SIB_SS
 #'
 #' @rdname initial_condition_sib_model
-#'
+#' @author Jun Li
+#' 
 #' @param POP_node vector, length represents number of cities/nodes; vector represents
 #'        population at each node
 #' @param sigma  symptomatic ratio, i.e., fraction of infected people that develop symptoms and are infective. 
@@ -20,7 +21,7 @@
 #'         Row 3: number of recovered people;
 #'         Row 4: bacteria concentration in equilibrium with infected individuals;
 #'         Row 2: number of infected people, but representing cumulative cases
-#'
+#'         
 #' @examples
 #' set.seed(2020)
 #' popu <- rep(20000, 10)
@@ -30,8 +31,6 @@
 #' theta <- runif(10, 0.1, 0.9) * theta_max
 #' y0 <- initial_condition_sib_model(popu, sigma, mu_B, theta, c(3))
 #' @export
-
-
 initial_condition_sib_model <- function(POP_node, sigma, mu_B, theta, node_in, in_prevalence=0.001) {
   # calculate nnodes
   nnodes = length(POP_node)

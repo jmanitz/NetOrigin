@@ -1,8 +1,7 @@
 language: r
 cache: packages
 
-#Define multiple R-versions, one from bioconductor
-r:
+#Define multiple R-versions:
   - oldrel
   - release
 

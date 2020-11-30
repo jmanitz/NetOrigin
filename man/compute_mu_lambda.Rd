@@ -33,7 +33,7 @@ selected observers, for Gaussian source estimation with prior information
 # fake training data, indicating format
 nnodes <- 851
 max.day <- 1312
-nsimu <- 300
+nsimu <- 100
 train.data.fake <- list()
 for (j in 1:nnodes) {
   train.data.fake[[j]] <- matrix(sample.int(max.day, 
@@ -42,4 +42,8 @@ for (j in 1:nnodes) {
 obs.vec <- (1:9)
 candidate.thres <- 0.3
 mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+
+}
+\author{
+Jun Li
 }

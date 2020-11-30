@@ -320,26 +320,21 @@ TimeMin <- function(num.cases, thres = NA){
 #origin_bayesian <- function(x) UseMethod("origin_bayesian")
 #' \code{origin_bayesian} Inference Source via Gaussian source estimation with prior information
 #'
-#' @param thres.vec vector, length represents number of cities/nodes, representing
-#'        thresholds for cities/nodes that they are infected
+#' @param thres.vec vector, length represents number of cities/nodes, representing thresholds for cities/nodes that they are infected
 #' @param obs.vec list of cities ids used as observers
-#' @param mu.mat matrix- number of cities/nodes x number of observers, each row represents- 
-#'        if this node is the source, the mean of arrival time vector
-#' @param lambda.list a length-number of cities/nodes list, each element is a number of observers x number of observers matrix-
-#'        if a node is the source, the covariance matrix for arrival time vector
+#' @param mu.mat matrix- number of cities/nodes x number of observers, each row represents - if this node is the source, the mean of arrival time vector
+#' @param lambda.list a length-number of cities/nodes list, each element is a number of observers x number of observers matrix - if a node is the source, the covariance matrix for arrival time vector
 #' @param poss.candidate.vec a boolean vector indicating if a node has the potential to be the source
 #' @param prior vector, length - number of cities/nodes, prior for cities
 #' @param use.prior boolean, TRUE or FALSE, if use prior, default TRUE
 #'
 #' @return a dataframe with columns 'nodes' and 'probab', indicating nodes indices and their posteriors
 #' 
-#' @import mvtnorm
-#'
 #' @examples
 #' # fake training data, indicating format
 #' nnodes <- 851
 #' max.day <- 1312
-#' nsimu <- 300
+#' nsimu <- 100
 #' max.case.per.day <- 10
 #' train.data.fake <- list()
 #' for (j in 1:nnodes) {
@@ -365,13 +360,10 @@ TimeMin <- function(num.cases, thres = NA){
 #'                      prior=prior, use.prior=TRUE)
 #' 
 #' @rdname origin
+#' @author Jun Li
+#' @import mvtnorm
 #' @export
-origin_bayesian <- function(events, 
-                            thres.vec,
-                            obs.vec,
-                            mu.mat, lambda.list, 
-                            poss.candidate.vec,
-                            prior, use.prior = TRUE){
+origin_bayesian <- function(events, thres.vec, obs.vec, mu.mat, lambda.list, poss.candidate.vec, prior, use.prior = TRUE){
   ## constant parameters
   cases.node.day <- events
   nnodes <- dim(cases.node.day)[1]
