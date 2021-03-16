@@ -21,7 +21,7 @@ Collate:
     'robustness.r'
     'stochastic_sib_model.R'
 NeedsCompilation: no
-Packaged: 2020-11-30 03:48:07 UTC; jmanitz
+Packaged: 2021-03-16; jmanitz
 Author: Juliane Manitz [aut, cre],
   Jonas Harbering [ctb], Jun Li [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>

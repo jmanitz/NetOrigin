@@ -21,11 +21,13 @@
 #'         if a node is the source, the covariance matrix for arrival time vector;
 #'         poss.candidate.vec: a boolean vector indicating if a node has the potential to be the source
 #' 
+#' @references Li, J., Manitz, J., Bertuzzo, E. and Kolaczyk, E.D. (2020). Sensor-based localization of epidemic sources on human mobility networks. arXiv preprint Available online: \url{https://arxiv.org/abs/2011.00138}.
+#' 
 #' @examples
 #' # fake training data, indicating format
 #' nnodes <- 851
 #' max.day <- 1312
-#' nsimu <- 100
+#' nsimu <- 20
 #' train.data.fake <- list()
 #' for (j in 1:nnodes) {
 #'   train.data.fake[[j]] <- matrix(sample.int(max.day, 

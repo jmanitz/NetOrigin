@@ -7,7 +7,7 @@
 \alias{ptnGoe}
 \title{Public transportation network datasets from LinTim software (Integrated Optimization in Public Transportation)}
 \source{
-Public transportation network datasets are extracted from LinTim software (Integrated Optimization in Public Transportation; \url{http://lintim.math.uni-goettingen.de/index.php?go=data&lang=en}). Special thanks to Anita Schoebel for making the data available.
+Public transportation network datasets are extracted from LinTim software (Integrated Optimization in Public Transportation; \url{https://www.lintim.net/index.php?go=data&lang=en}). Special thanks to Anita Schoebel for making the data available.
 
 The Athens Metro data was collected by Konstantinos Gkoumas.
 

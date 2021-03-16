@@ -33,7 +33,7 @@ selected observers, for Gaussian source estimation with prior information
 # fake training data, indicating format
 nnodes <- 851
 max.day <- 1312
-nsimu <- 100
+nsimu <- 20
 train.data.fake <- list()
 for (j in 1:nnodes) {
   train.data.fake[[j]] <- matrix(sample.int(max.day, 
@@ -43,6 +43,9 @@ obs.vec <- (1:9)
 candidate.thres <- 0.3
 mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
 
+}
+\references{
+Li, J., Manitz, J., Bertuzzo, E. and Kolaczyk, E.D. (2020). Sensor-based localization of epidemic sources on human mobility networks. arXiv preprint Available online: \url{https://arxiv.org/abs/2011.00138}.
 }
 \author{
 Jun Li

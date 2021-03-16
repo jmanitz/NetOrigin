@@ -186,15 +186,20 @@ origin_multiple(events=delayAth[10,-c(1:2)], type='edm', graph=ptnAth, no=2, dis
 
 ### References
 
+  - Li, J., J. Manitz, E. Bertuzzo, and E.D. Kolaczyk (2021):
+    Sensor-based localization of epidemic sources on human mobility
+    networks. PLoS Comput Biol 17(1): e1008545. \<DOI:
+    10.1371/journal.pcbi.1008545\>
+
   - Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel
     (2017): Source Estimation for Propagation Processes on Complex
     Networks with an Application to Delays in Public Transportation
     Systems. Journal of Royal Statistical Society C (Applied
-    Statistics), 66: 521–536.
+    Statistics), 66: 521–536. \<DOI: 10.1111/rssc.12176\>
 
-  - Manitz, J., Kneib, T., Schlather, M., Helbing, D. and Brockmann, D.
-    (2014) Origin detection during food-borne disease outbreaks - a case
-    study of the 2011 EHEC/HUS outbreak in Germany. PLoS Currents
+  - Manitz, J., T. Kneib, M. Schlather, J. Helbing, and D. Brockmann
+    (2014): Origin detection during food-borne disease outbreaks - a
+    case study of the 2011 EHEC/HUS outbreak in Germany. PLoS Currents
     Outbreaks, 1. \<DOI:
     10.1371/currents.outbreaks.f3fdeb08c5b9de7c09ed9cbcef5f01f2\>
 

@@ -5,6 +5,7 @@
 #'
 #' @rdname stochastic_sib_model
 #' @author Jun Li
+#' @references Li, J., Manitz, J., Bertuzzo, E. and Kolaczyk, E.D. (2020). Sensor-based localization of epidemic sources on human mobility networks. arXiv preprint Available online: \url{https://arxiv.org/abs/2011.00138}.
 #' 
 #' @param mu population natality and mortality rate (day^-1)
 #' @param beta contact rate 
