@@ -45,7 +45,7 @@ all(spd[[1]] == spd_igraph)
 \itemize{
  \item Dijkstra, E. W. (1959): A note on two problems in connexion with graphs. Numerische Mathematik, 1, 269-271. <DOI: 10.1007/BF01386390>
  \item Brockmann, D. and Helbing, D. (2013): The hidden geometry of complex, network-driven contagion phenomena. Science, 342, 1337-1342. <DOI: 10.1126/science.1245200>
- \item Manitz, J. (2014): Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr. Hut, ISBN 978-3-8439-1668-4. Available online: \url{http://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
+ \item Manitz, J. (2014): Statistical Inference for Propagation Processes on Complex Networks. Ph.D. thesis, Georg-August-University Goettingen. Verlag Dr. Hut, ISBN 978-3-8439-1668-4. Available online: \url{https://ediss.uni-goettingen.de/handle/11858/00-1735-0000-0022-5F38-B}.
 }
 }
 \concept{distance}

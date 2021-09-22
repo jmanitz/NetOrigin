@@ -1,7 +1,7 @@
 Package: NetOrigin
 Title: Origin Estimation for Propagation Processes on Complex Networks
 Description: Performs network-based source estimation. Different approaches are available: effective distance median, recursive backtracking, and centrality-based source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.
-Version: 1.1-1
+Version: 1.1-2
 Authors@R: c(person("Juliane", "Manitz", email="r@manitz.org", role=c("aut", "cre")), person("Jonas", "Harbering", email="", role=c("ctb")), person("Jun", "Li", email="", role=c("ctb")))
 Depends: R (>= 3.2.2)
 Imports: igraph, Hmisc, colorspace, mvtnorm, corpcor
@@ -21,7 +21,7 @@ Collate:
     'robustness.r'
     'stochastic_sib_model.R'
 NeedsCompilation: no
-Packaged: 2021-03-16; jmanitz
+Packaged: 2021-03-31; jmanitz
 Author: Juliane Manitz [aut, cre],
   Jonas Harbering [ctb], Jun Li [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>
