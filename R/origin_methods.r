@@ -44,7 +44,7 @@
 #' @export
 origin_edm <- function(events, distance, silent=TRUE){    
     ### error handling
-    if(!is.vector(events)) events <- as.vector(events)
+#    if(!is.vector(events)) events <- as.vector(events)
     # NA handling in events
     nas <- which(is.na(events))
     if(length(nas)>0){
@@ -158,7 +158,7 @@ var_wtd_mean_cochran <- function(x,w){
 origin_backtracking <- function(events, graph, start_with_event_node = TRUE, silent = TRUE){
     
    # input errors
-    if(!is.vector(events)) events <- as.vector(events)
+#    if(!is.vector(events)) events <- as.vector(events)
 #    if(is.null(names(events))) warning('\nWarning: events and node names cannot be matched - we assume that events and graph nodes have the same order')
 
    # match events and graph names
@@ -253,7 +253,7 @@ origin_centrality <- function(events, graph, silent=TRUE){
 
     # input errors
     if(is.null(names(events))) stop('\nError: events and node names cannot be matched')
-    if(!is.vector(events)) events <- as.vector(events)
+#    if(!is.vector(events)) events <- as.vector(events)
     idm <- match(names(events), V(graph)$name)
     # remove events that not have nodes in the network
     nas <- which(is.na(idm))
