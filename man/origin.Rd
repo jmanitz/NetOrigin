@@ -151,12 +151,14 @@ nnodes <- dim(cases.node.day)[1] # number of nodes
 thres.vec <- rep(10, nnodes)
 # flat/non-informative prior
 prior <- rep(1, nnodes) 
+\donttest{
 result2.df <- origin(events = cases.node.day, type = "bayesian",
                      thres.vec = thres.vec,
                      obs.vec = obs.vec,
                      mu.mat=mu.lambda.list$mu.mat, lambda.list = mu.lambda.list$lambda.list, 
                      poss.candidate.vec=mu.lambda.list$poss.candidate.vec,
                      prior=prior, use.prior=TRUE)
+}
 
 }
 \references{

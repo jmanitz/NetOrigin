@@ -24,6 +24,7 @@
 #' @references Li, J., Manitz, J., Bertuzzo, E. and Kolaczyk, E.D. (2020). Sensor-based localization of epidemic sources on human mobility networks. arXiv preprint Available online: \url{https://arxiv.org/abs/2011.00138}.
 #' 
 #' @examples
+#' \donttest{
 #' # fake training data, indicating format
 #' nnodes <- 851
 #' max.day <- 1312
@@ -36,6 +37,7 @@
 #' obs.vec <- (1:9)
 #' candidate.thres <- 0.3
 #' mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+#' }
 #' 
 #' @import corpcor
 #' @export

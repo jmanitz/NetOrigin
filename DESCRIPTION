@@ -4,7 +4,7 @@ Description: Performs network-based source estimation. Different approaches are 
 Version: 1.1-4
 Authors@R: c(person("Juliane", "Manitz", email="r@manitz.org", role=c("aut", "cre")), person("Jonas", "Harbering", email="", role=c("ctb")), person("Jun", "Li", email="", role=c("ctb")))
 Depends: R (>= 3.2.2)
-Imports: igraph, Hmisc, colorspace, mvtnorm, corpcor
+Imports: igraph, Hmisc, colorspace, mvtnorm, corpcor, plyr
 License: GPL-3
 LazyData: true
 RoxygenNote: 7.1.2

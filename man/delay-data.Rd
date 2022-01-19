@@ -22,36 +22,32 @@ Delay propagation data examples simulated by LinTim software
 \code{delayGoe} Delay data on the directed Goettingen bus system. Progation simulation under consideration of secruity distances and fixed-waiting time delay management. 'data.frame' with 2570 observations (10 sequential time pictures for delay spreading pattern from 257 stations) of 259 variables (\code{k0} true source, \code{time}, delays at 257 stations).
 }
 \examples{
-\dontrun{ 
+\donttest{ 
 # compute effective distance
 data(ptnAth)
 athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
 p <- athnet/rowSums(athnet)
 eff <- eff_dist(p)
 # apply source estimation
-if (requireNamespace("aplyr", quietly = TRUE)) {
 data(delayAth)
-res <- alply(.data=delayAth[,-c(1:2)], .margins=1, .fun=origin_edm, distance=eff,
+res <- plyr::alply(.data=delayAth[,-c(1:2)], .margins=1, .fun=origin_edm, distance=eff,
              silent=TRUE, .progress='text')
-perfAth <- ldply(Map(performance, x = res, start = as.list(delayAth$k0),  
+perfAth <- plyr::ldply(Map(performance, x = res, start = as.list(delayAth$k0),  
                      list(graph = ptnAth)))
 }
-} 
-\dontrun{ 
+\donttest{ 
 # compute effective distance
 data(ptnGoe)
 goenet <- igraph::as_adjacency_matrix(ptnGoe, sparse=FALSE)
 p <- goenet/rowSums(goenet)
 eff <- eff_dist(p)
 # apply source estimation
-if (requireNamespace("aplyr", quietly = TRUE)) {
 data(delayGoe)
-res <- alply(.data=delayGoe[,-c(1:2)], .margins=1, .fun=origin_edm, distance=eff,
+res <- plyr::alply(.data=delayGoe[,-c(1:2)], .margins=1, .fun=origin_edm, distance=eff,
              silent=TRUE, .progress='text')
-perfGoe <- ldply(Map(performance, x = res, start = as.list(delayGoe$k0), 
+perfGoe <- plyr::ldply(Map(performance, x = res, start = as.list(delayGoe$k0), 
                      list(graph = ptnGoe)))
 }
-} 
 }
 \references{
 Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2017): Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Journal of Royal Statistical Society C (Applied Statistics), 66: 521-536.

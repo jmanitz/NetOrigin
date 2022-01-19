@@ -30,6 +30,7 @@ a list, consisting of 3 variables: mu.mat, lambda.list, poss.candidate.vec
 selected observers, for Gaussian source estimation with prior information
 }
 \examples{
+\donttest{
 # fake training data, indicating format
 nnodes <- 851
 max.day <- 1312
@@ -42,6 +43,7 @@ for (j in 1:nnodes) {
 obs.vec <- (1:9)
 candidate.thres <- 0.3
 mu.lambda.list <- compute_mu_lambda(train.data.fake, obs.vec, candidate.thres)
+}
 
 }
 \references{

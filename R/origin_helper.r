@@ -252,14 +252,12 @@ performance.origin <-  function(x, start, graph=NULL, ...){
 #' eff <- eff_dist(p)
 #' # apply source estimation
 #' data(delayGoe)
-#' if (requireNamespace("aplyr", quietly = TRUE)) {
-#'    res <- alply(.data=delayGoe[11:20,-c(1:2)], .margins=1, .fun=origin_edm, 
-#'                 distance=eff, silent=TRUE, .progress='text')
-#'    perfGoe <- ldply(Map(performance, x = res, start = 2, list(graph = ptnGoe)))
-#'    # performance plots
-#'    plot_performance(perfGoe, var='rank', ylab='rank of correct detection', text.padding=0.5)
-#'    plot_performance(perfGoe, var='dist', ylab='distance to correct detection')
-#' }
+#' res <- plyr::alply(.data=delayGoe[11:20,-c(1:2)], .margins=1, .fun=origin_edm, 
+#'                    distance=eff, silent=TRUE, .progress='text')
+#' perfGoe <- plyr::ldply(Map(performance, x = res, start = 2, list(graph = ptnGoe)))
+#' # performance plots
+#' plot_performance(perfGoe, var='rank', ylab='rank of correct detection', text.padding=0.5)
+#' plot_performance(perfGoe, var='dist', ylab='distance to correct detection')
 #' 
 #' ### delays on Athens metro network
 #' # compute effective distance
@@ -269,16 +267,14 @@ performance.origin <-  function(x, start, graph=NULL, ...){
 #' eff <- eff_dist(p)
 #' # apply source estimation
 #' data(delayAth)
-#' if (requireNamespace("aplyr", quietly = TRUE)) {
-#'    res <- alply(.data=delayAth[11:20,-c(1:2)], .margins=1, .fun=origin_edm, 
-#'              distance=eff, silent=TRUE, .progress='text')
-#'    perfAth <- ldply(Map(performance, x = res, start = as.list(delayAth$k0),
-#'                      list(graph = ptnAth)))
-#'    # performance plots
-#'    plot_performance(perfAth, var='rank', ylab='rank of correct detection',text.padding=0.5)
-#'    plot_performance(perfAth, var='dist', ylab='distance to correct detection')
-#' }
-#' }
+#' res <- plyr::alply(.data=delayAth[11:20,-c(1:2)], .margins=1, .fun=origin_edm, 
+#'                   distance=eff, silent=TRUE, .progress='text')
+#' perfAth <- plyr::ldply(Map(performance, x = res, start = as.list(delayAth$k0),
+#'                       list(graph = ptnAth)))
+#' # performance plots
+#' plot_performance(perfAth, var='rank', ylab='rank of correct detection',text.padding=0.5)
+#' plot_performance(perfAth, var='dist', ylab='distance to correct detection')
+#' 
 #' @importFrom graphics abline legend lines points text
 #' @export
 plot_performance <- function(x, var='rank', add=FALSE, offset=NULL, log=FALSE, col=1, ylim=NULL, text.padding = 0.9, ...){

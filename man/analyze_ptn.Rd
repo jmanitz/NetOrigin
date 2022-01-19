@@ -17,7 +17,6 @@ analyze_ptn(g)
      \item \code{density} network graph density, 
      \item \code{av_deg} average degree, 
      \item \code{av_cent} average unit betweenness,
-     \item \code{av_spl} average shortest path length, 
      \item \code{diam} diameter, and 
      \item \code{trans} transitivity.
 }
