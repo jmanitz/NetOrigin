@@ -57,6 +57,8 @@ analyze_ptn <- function(g){
 #' @param color.scheme character vector of length 5 indicating the \code{vertex.color}, default is \code{rev(sequential_hcl(5))}
 #' @param legend logical indicating whether legend for color-coding should be added or not.
 #' @param ... further arguments to be passed to \code{\link{plot.igraph}}
+#' 
+#' @return No return value
 #'
 #' @examples
 #' data(ptnAth)

@@ -33,13 +33,7 @@ origin <- function(events, type=c('edm', 'backtracking', 'centrality', 'bayesian
 
 #################### standard methods for origin objects ######################
 
-# add generic 
-#print <- function(x) UseMethod("print")
 #' @name origin-methods
-# #' @aliases print.origin
-# #' @aliases summary
-# #' @aliases plot
-# #' @aliases performance
 #'
 #' @title methods for origin estimation objects of class \code{origin}
 #' 
@@ -139,9 +133,12 @@ plot.origin <- function(x, y='id', start, ...){
 #### evaluation method for origin objects
 
 # add generic for evaluation 
-#' generic method for performance evaluation
+#' generic method for performance evaluation for objects of class \code{origin}
 #' @param x object
 #' @param ... further arguments
+#' 
+#' @return none, there are no applicable methods available for other objects
+#' 
 #' @seealso \code{\link{origin-methods}} \code{\link{plot_performance}}
 #' @export
 performance <- function(x, ...) UseMethod("performance")
@@ -241,10 +238,12 @@ performance.origin <-  function(x, start, graph=NULL, ...){
 #' @param ylim numeric vector, range of y axis
 #' @param text.padding a numeric value specifying the factor for the text position relative to the y values
 #' @param ... further graphical parameters passed to default \code{plot} function
+#' 
+#' @return No return value
 #'
 #' @import igraph 
 #' @examples
-#' \dontrun{ 
+#' \donttest{ 
 #' ### delays on Goettingen bus network
 #' # compute effective distance
 #' data(ptnGoe)

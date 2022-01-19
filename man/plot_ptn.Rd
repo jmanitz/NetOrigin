@@ -23,6 +23,9 @@ plot_ptn(
 
 \item{...}{further arguments to be passed to \code{\link{plot.igraph}}}
 }
+\value{
+No return value
+}
 \description{
 A plot method for public transportation networks (PTNs).
 }

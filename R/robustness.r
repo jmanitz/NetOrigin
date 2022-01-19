@@ -13,6 +13,7 @@ robustness <- function(x, ...) UseMethod("robustness")
 #' @param prop numeric, value between zero and one, proportion of events to be sampled
 #' @param n numeric, number of resamplings
 #' @param ... parameters to be passed to origin methods \code{\link{origin_edm}}, \code{\link{origin_backtracking}} or \code{\link{origin_centrality}}
+#' 
 #' @return \code{data.frame} with columns
 #'   \itemize{
 #'         \item \code{est} origin estimated when all data is evaluated
@@ -94,9 +95,10 @@ robustness <- function(x, type=c('edm', 'backtracking', 'centrality'), prop, n=1
 #' @param add logical specifying whether this should be added to another robustness plot
 #' @param ... further arguments passed to the default \code{print} method
 #'
+#' @return No return value
+#'
 #' @seealso \code{\link{robustness}}
 #' @rdname robustness-methods
-# #' @export
 print.robustness <- function(x, ...){
     ret <- data.frame(time = attr(x,'row.names'), estimate = x$est, robustness = x$rob)
     print(ret, ...)
@@ -107,7 +109,6 @@ print.robustness <- function(x, ...){
 #' @param object object of class \code{\link{origin}}, origin estimation object from function \code{origin_xxx}; passed to \code{x}
 #' 
 #' @rdname robustness-methods
-# #' @export
 summary.robustness <- function(object, x = object, ...){
     ret <- data.frame(time = attr(x,'row.names'), estimate = x$est, robustness = x$rob)
     summary(ret, ...)

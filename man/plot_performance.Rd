@@ -35,11 +35,14 @@ plot_performance(
 
 \item{...}{further graphical parameters passed to default \code{plot} function}
 }
+\value{
+No return value
+}
 \description{
 A plot method combining a time series of performance results.
 }
 \examples{
-\dontrun{ 
+\donttest{ 
 ### delays on Goettingen bus network
 # compute effective distance
 data(ptnGoe)
