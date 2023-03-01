@@ -8,7 +8,6 @@
 #'      \item \code{density} network graph density, 
 #'      \item \code{av_deg} average degree, 
 #'      \item \code{av_cent} average unit betweenness,
-#'      \item \code{av_spl} average shortest path length, 
 #'      \item \code{diam} diameter, and 
 #'      \item \code{trans} transitivity.
 #' }
@@ -57,6 +56,8 @@ analyze_ptn <- function(g){
 #' @param color.scheme character vector of length 5 indicating the \code{vertex.color}, default is \code{rev(sequential_hcl(5))}
 #' @param legend logical indicating whether legend for color-coding should be added or not.
 #' @param ... further arguments to be passed to \code{\link{plot.igraph}}
+#' 
+#' @return No return value
 #'
 #' @examples
 #' data(ptnAth)

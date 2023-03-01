@@ -307,4 +307,3 @@ plot_performance <- function(x, var='rank', add=FALSE, offset=NULL, log=FALSE, c
 }
 
 
-
