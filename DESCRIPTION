@@ -1,13 +1,14 @@
 Package: NetOrigin
 Title: Origin Estimation for Propagation Processes on Complex Networks
 Description: Performs network-based source estimation. Different approaches are available: effective distance median, recursive backtracking, and centrality-based source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.
-Version: 1.1-2
+Version: 1.1-3
 Authors@R: c(person("Juliane", "Manitz", email="r@manitz.org", role=c("aut", "cre")), person("Jonas", "Harbering", email="", role=c("ctb")), person("Jun", "Li", email="", role=c("ctb")))
 Depends: R (>= 3.2.2)
-Imports: igraph, Hmisc, colorspace, mvtnorm, corpcor
+Imports: igraph, Hmisc, colorspace, mvtnorm, corpcor, dplyr, tibble
 License: GPL-3
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
+Encoding: UTF-8
 Collate: 
     '0_helper_net.r'
     'NetOrigin.r'
@@ -21,7 +22,7 @@ Collate:
     'robustness.r'
     'stochastic_sib_model.R'
 NeedsCompilation: no
-Packaged: 2021-03-31; jmanitz
+Packaged: 2023-03-01; jmanitz
 Author: Juliane Manitz [aut, cre],
   Jonas Harbering [ctb], Jun Li [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>

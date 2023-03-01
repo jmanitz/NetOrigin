@@ -51,13 +51,14 @@ origin <- function(events, type=c('edm', 'backtracking', 'centrality', 'bayesian
 #' @seealso \code{\link{origin}} \code{\link{plot_performance}}
 #' @export
 print.origin <- function(x, ...){
-  if(!is.na(x$est)){ 
-     switch(x$type, edm = cat('Effective distance median origin estimation:\n\n'),
-		    backtracking = cat('Backtracking origin estimation:\n\n'),
-                    centrality = cat('Centrality-based origin estimation:\n\n'))
-    cat(paste('estimated node of origin', x$est))    
-    if(!is.null(rownames(x[[2]]))) cat(paste(':',rownames(x[[2]])[x$est],'\n'))
-    else cat('\n')
+  if(!is.null(x$est)){ 
+     switch(x$type, edm = cat('Effective distance median origin estimation\n\n'),
+		    backtracking = cat('Backtracking origin estimation\n\n'),
+                    centrality = cat('Centrality-based origin estimation\n\n'))
+    cat('Estimated node of origin:\n')
+    print(x$est)
+    # if(!is.null(rownames(x[[2]]))) cat(paste(':',rownames(x[[2]])[x$est],'\n'))
+    # else cat('\n')
   }else{
     cat('source estimation not available\n')
   }
@@ -90,15 +91,13 @@ summary.origin <- function(object, x = object, ...){
 #' @export
 plot.origin <- function(x, y='id', start, ...){
     # extract estimation result
-    k0.hat <- x$est
+    k0.hat <- x$est$id
     res <- x$aux
     K <- nrow(res) # number of nodes
     # extract node names
-    node.names <- if( is.null(rownames(res)) ) 1:K else rownames(res)
+    node.names <- res$name#if( is.null(rownames(res)) ) 1:K else rownames(res)
     # convert start as numeric
-    if(is.character(start) && !is.null(rownames(res))){
-	start <- match(start,rownames(res))
-    }
+
     # define point size proportional to event magnitude 
     x <- sqrt(res$events)
     px <- x/max(x)*3+0.5 # point size propotional to events observed
@@ -107,7 +106,7 @@ plot.origin <- function(x, y='id', start, ...){
     y <- match.arg(y, c('id', 'wvar', 'mdist'))
     # plot: aux[,3] (cent,wmean) ~ id scatterplot
     if(y == 'id'){
-      xy <- res[,c(3,1)]
+      xy <- res[,c(4,2)]
     }
     # plot: weighted mean - unweighted mean effective distance scatterplot
     if(y == 'mdist'){
@@ -179,22 +178,18 @@ performance <- function(x, ...) UseMethod("performance")
 performance.origin <-  function(x, start, graph=NULL, ...){
 
     # extract estimation result
-    k0.hat <- x$est
+    k0.hat <- x$est$id
     aux <- x$aux
     K <- nrow(aux) # number of nodes
     # extract node names
-    node.names <- if( is.null(rownames(aux)) ) 1:K else rownames(aux)
-    # convert start as numeric
-    if(is.character(start) && !is.null(rownames(aux))){
-	start <- match(start,rownames(aux))
-    }
+    node.names <- aux$name#if( is.null(rownames(res)) ) 1:K else rownames(res)
 
     ### evaluation measures
     ret <- data.frame(start = node.names[start], est = NA, 
                       hitt = 'missing', rank = NA, spj = NA, dist = NA)
 #                      r.err = NA, v.coef = NA)
     # no source detection to evaluate
-    if(is.na(k0.hat)) return(ret)
+    if(is.null(k0.hat)) return(ret)
     else ret$est = node.names[k0.hat]
     # correct source detection
     if(start == k0.hat){

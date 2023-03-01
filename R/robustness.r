@@ -51,7 +51,7 @@ robustness <- function(x, type=c('edm', 'backtracking', 'centrality'), prop, n=1
     # run source detection on all data
     datA <- aggr_data(x,cumsum=TRUE)#, from='06:00')
     res <- apply(datA, FUN=origin, type=type, MARGIN=1, ...)
-    est <- unlist(lapply(res, function(y) rownames(y[[2]])[y$est]))
+    est <- unlist(lapply(res, function(y) rownames(y[[2]])[y$est$id]))
     nt <- length(est) # number of time points
 
     # initialize return vector counting the number of estimate replica 
@@ -70,7 +70,7 @@ robustness <- function(x, type=c('edm', 'backtracking', 'centrality'), prop, n=1
         }
         # run source detection
         res.sam <- apply(dat.sam, FUN=origin, type=type, MARGIN=1, ...)
-        est.sam <- unlist(lapply(res.sam, function(x) rownames(x[[2]])[x$est]))
+        est.sam <- unlist(lapply(res.sam, function(x) rownames(x[[2]])[x$est$id]))
         # update number of estimate replica
         rob <- rob + as.numeric( est == est.sam )
     }
