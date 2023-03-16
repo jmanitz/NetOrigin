@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,26 +33,20 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">NetOrigin</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1-1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1-4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/jmanitz/NetOrigin/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/jmanitz/NetOrigin/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -66,139 +62,140 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="netorigin-package" class="section level2">
-<h2 class="hasAnchor">
-<a href="#netorigin-package" class="anchor"></a><code>NetOrigin</code> package</h2>
-
-<p><a href="https://CRAN.R-project.org/package=NetOrigin"><img src="http://www.r-pkg.org/badges/version/NetOrigin" alt="CRAN Status Badge"></a> <a href="https://CRAN.R-project.org/package=NetOrigin"><img src="http://cranlogs.r-pkg.org/badges/NetOrigin" alt="CRAN Downloads"></a> <img src="https://img.shields.io/cran/l/NetOrigin" alt="CRAN License"><img src="https://img.shields.io/librariesio/release/CRAN/NetOrigin" alt="CRAN dependencies status"><img src="https://img.shields.io/website?url=http%3A%2F%2FNetOrigin.manitz.org%2F" alt="Website"></p>
+<div class="section level2">
+<h2 id="netorigin-package">
+<code>NetOrigin</code> package<a class="anchor" aria-label="anchor" href="#netorigin-package"></a>
+</h2>
+<p><a href="https://travis-ci.org/jmanitz/NetOrigin" class="external-link"><img src="https://travis-ci.org/jmanitz/NetOrigin.svg?branch=master" alt="Build Status (Linux)"></a> <a href="https://ci.appveyor.com/project/jmanitz/NetOrigin/branch/master" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/github/jmanitz/NetOrigin?branch=master&amp;svg=true" alt="Build status (Windows)"></a> <a href="https://coveralls.io/github/jmanitz/NetOrigin?branch=master" class="external-link"><img src="https://coveralls.io/repos/github/jmanitz/NetOrigin/badge.svg?branch=master" alt="Coverage Status"></a> <img src="https://img.shields.io/github/repo-size/jmanitz/NetOrigin" alt="GitHub repo size"><img src="https://img.shields.io/github/issues/jmanitz/NetOrigin" alt="GitHub issues"></p>
+<p><a href="https://CRAN.R-project.org/package=NetOrigin" class="external-link"><img src="http://www.r-pkg.org/badges/version/NetOrigin" alt="CRAN Status Badge"></a> <a href="https://CRAN.R-project.org/package=NetOrigin" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/NetOrigin" alt="CRAN Downloads"></a> <img src="https://img.shields.io/cran/l/NetOrigin" alt="CRAN License"><img src="https://img.shields.io/librariesio/release/CRAN/NetOrigin" alt="CRAN dependencies status"><img src="https://img.shields.io/website?url=http%3A%2F%2FNetOrigin.manitz.org%2F" alt="Website"></p>
 <p>Performs network-based source estimation. Different approaches are available: effective distance median, recursive backtracking, and centrality-based source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.</p>
-<div id="installation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h3>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
 <p>You can install the latest production version from CRAN</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"NetOrigin"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"NetOrigin"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>or the current development version from GitHub</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/">"devtools"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"jmanitz/NetOrigin"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/" class="external-link">"devtools"</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jmanitz/NetOrigin"</span><span class="op">)</span></span></code></pre></div>
 <p>Then, load the package</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://netorigin.manitz.org/">"NetOrigin"</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://netorigin.manitz.org/" class="external-link">"NetOrigin"</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="example-effective-distance" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-effective-distance" class="anchor"></a>Example: Effective Distance</h3>
+<div class="section level3">
+<h3 id="example-effective-distance">Example: Effective Distance<a class="anchor" aria-label="anchor" href="#example-effective-distance"></a>
+</h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">delayGoe</span><span class="op">)</span>
-
-<span class="co"># compute effective distance</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ptnGoe</span><span class="op">)</span>
-<span class="va">goenet</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html">as_adjacency_matrix</a></span><span class="op">(</span><span class="va">ptnGoe</span>, sparse<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">goenet</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">goenet</span><span class="op">)</span>
-<span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/eff_dist.html">eff_dist</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">## Computing the effective distance between 257 nodes:</span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co">##  1...................................................................................................</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co">##  100...................................................................................................</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co">##  200.........................................................done</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">delayGoe</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># compute effective distance</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ptnGoe</span><span class="op">)</span></span>
+<span><span class="va">goenet</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html" class="external-link">as_adjacency_matrix</a></span><span class="op">(</span><span class="va">ptnGoe</span>, sparse<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">goenet</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">goenet</span><span class="op">)</span></span>
+<span><span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/eff_dist.html">eff_dist</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Computing the effective distance between 257 nodes:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  1...................................................................................................</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  100...................................................................................................</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  200.........................................................done</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># apply effective distance median source estimation</span>
-<span class="va">om</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/origin.html">origin</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayGoe</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'edm'</span>, distance<span class="op">=</span><span class="va">eff</span><span class="op">)</span>
-<span class="fu"><a href="reference/robustness-methods.html">summary</a></span><span class="op">(</span><span class="va">om</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">## Effective distance median origin estimation:</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">## </span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">## estimated node of origin 91: X.Gotthelf.Leimbach.Strasse </span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">## </span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">## auxiliary variables:</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">##        id          events            wmean             wvar       </span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">##  Min.   :  1   Min.   : 0.0000   Min.   : 5.482   Min.   :0.3987  </span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">##  1st Qu.: 65   1st Qu.: 0.0000   1st Qu.:21.572   1st Qu.:2.2761  </span></a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co">##  Median :129   Median : 0.0000   Median :27.345   Median :2.4050  </span></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co">##  Mean   :129   Mean   : 0.6459   Mean   :26.948   Mean   :2.4989  </span></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="co">##  3rd Qu.:193   3rd Qu.: 0.0000   3rd Qu.:33.359   3rd Qu.:2.9986  </span></a>
-<a class="sourceLine" id="cb7-12" title="12"><span class="co">##  Max.   :257   Max.   :46.0000   Max.   :47.762   Max.   :6.2052  </span></a>
-<a class="sourceLine" id="cb7-13" title="13"><span class="co">##      mdist      </span></a>
-<a class="sourceLine" id="cb7-14" title="14"><span class="co">##  Min.   :14.34  </span></a>
-<a class="sourceLine" id="cb7-15" title="15"><span class="co">##  1st Qu.:20.75  </span></a>
-<a class="sourceLine" id="cb7-16" title="16"><span class="co">##  Median :24.23  </span></a>
-<a class="sourceLine" id="cb7-17" title="17"><span class="co">##  Mean   :24.92  </span></a>
-<a class="sourceLine" id="cb7-18" title="18"><span class="co">##  3rd Qu.:28.88  </span></a>
-<a class="sourceLine" id="cb7-19" title="19"><span class="co">##  Max.   :39.16</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># apply effective distance median source estimation</span></span>
+<span><span class="va">om</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/origin.html">origin</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayGoe</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'edm'</span>, distance<span class="op">=</span><span class="va">eff</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/robustness-methods.html">summary</a></span><span class="op">(</span><span class="va">om</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Effective distance median origin estimation:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## estimated node of origin 91: X.Gotthelf.Leimbach.Strasse </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## auxiliary variables:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">##        id          events            wmean             wvar       </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  Min.   :  1   Min.   : 0.0000   Min.   : 5.482   Min.   :0.3987  </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  1st Qu.: 65   1st Qu.: 0.0000   1st Qu.:21.572   1st Qu.:2.2761  </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  Median :129   Median : 0.0000   Median :27.345   Median :2.4050  </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  Mean   :129   Mean   : 0.6459   Mean   :26.948   Mean   :2.4989  </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  3rd Qu.:193   3rd Qu.: 0.0000   3rd Qu.:33.359   3rd Qu.:2.9986  </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  Max.   :257   Max.   :46.0000   Max.   :47.762   Max.   :6.2052  </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">##      mdist      </span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  Min.   :14.34  </span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  1st Qu.:20.75  </span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  Median :24.23  </span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  Mean   :24.92  </span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  3rd Qu.:28.88  </span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  Max.   :39.16</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/robustness-methods.html">plot</a></span><span class="op">(</span><span class="va">om</span>, <span class="st">'mdist'</span>, start<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/robustness-methods.html">plot</a></span><span class="op">(</span><span class="va">om</span>, <span class="st">'mdist'</span>, start<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="README_files/figure-gfm/unnamed-chunk-4-1.png"><!-- --></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/robustness-methods.html">plot</a></span><span class="op">(</span><span class="va">om</span>, <span class="st">'wvar'</span>, start<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/robustness-methods.html">plot</a></span><span class="op">(</span><span class="va">om</span>, <span class="st">'wvar'</span>, start<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="README_files/figure-gfm/unnamed-chunk-4-2.png"><!-- --></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/performance.html">performance</a></span><span class="op">(</span><span class="va">om</span>, start<span class="op">=</span><span class="fl">1</span>, graph<span class="op">=</span><span class="va">ptnGoe</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co">##                   start                         est  hitt rank spj dist</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="co">## 1 X.Adolf.Hoyer.Strasse X.Gotthelf.Leimbach.Strasse FALSE    2   2 1332</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/performance.html">performance</a></span><span class="op">(</span><span class="va">om</span>, start<span class="op">=</span><span class="fl">1</span>, graph<span class="op">=</span><span class="va">ptnGoe</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">##                   start                         est  hitt rank spj dist</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 X.Adolf.Hoyer.Strasse X.Gotthelf.Leimbach.Strasse FALSE    2   2 1332</span></span></code></pre></div>
 </div>
-<div id="example-backtracking" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-backtracking" class="anchor"></a>Example: Backtracking</h3>
+<div class="section level3">
+<h3 id="example-backtracking">Example: Backtracking<a class="anchor" aria-label="anchor" href="#example-backtracking"></a>
+</h3>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># backtracking origin estimation (Manitz et al., 2016)</span>
-<span class="va">ob</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/origin.html">origin</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayGoe</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'backtracking'</span>, graph<span class="op">=</span><span class="va">ptnGoe</span><span class="op">)</span>
-<span class="fu"><a href="reference/robustness-methods.html">summary</a></span><span class="op">(</span><span class="va">ob</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="co">## Backtracking origin estimation:</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="co">## </span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="co">## estimated node of origin 87: X.Gesundbrunnen </span></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="co">## </span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="co">## auxiliary variables:</span></a>
-<a class="sourceLine" id="cb13-6" title="6"><span class="co">##        id          events            bcount       </span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="co">##  Min.   :  1   Min.   : 0.0000   Min.   :0.00000  </span></a>
-<a class="sourceLine" id="cb13-8" title="8"><span class="co">##  1st Qu.: 65   1st Qu.: 0.0000   1st Qu.:0.00000  </span></a>
-<a class="sourceLine" id="cb13-9" title="9"><span class="co">##  Median :129   Median : 0.0000   Median :0.00000  </span></a>
-<a class="sourceLine" id="cb13-10" title="10"><span class="co">##  Mean   :129   Mean   : 0.6459   Mean   :0.03891  </span></a>
-<a class="sourceLine" id="cb13-11" title="11"><span class="co">##  3rd Qu.:193   3rd Qu.: 0.0000   3rd Qu.:0.00000  </span></a>
-<a class="sourceLine" id="cb13-12" title="12"><span class="co">##  Max.   :257   Max.   :46.0000   Max.   :3.00000</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># backtracking origin estimation (Manitz et al., 2016)</span></span>
+<span><span class="va">ob</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/origin.html">origin</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayGoe</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'backtracking'</span>, graph<span class="op">=</span><span class="va">ptnGoe</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/robustness-methods.html">summary</a></span><span class="op">(</span><span class="va">ob</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Backtracking origin estimation:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="do">## estimated node of origin 87: X.Gesundbrunnen </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="do">## auxiliary variables:</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">##        id          events            bcount       </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  Min.   :  1   Min.   : 0.0000   Min.   :0.00000  </span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  1st Qu.: 65   1st Qu.: 0.0000   1st Qu.:0.00000  </span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  Median :129   Median : 0.0000   Median :0.00000  </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  Mean   :129   Mean   : 0.6459   Mean   :0.03891  </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  3rd Qu.:193   3rd Qu.: 0.0000   3rd Qu.:0.00000  </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  Max.   :257   Max.   :46.0000   Max.   :3.00000</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/robustness-methods.html">plot</a></span><span class="op">(</span><span class="va">ob</span>, start<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/robustness-methods.html">plot</a></span><span class="op">(</span><span class="va">ob</span>, start<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="README_files/figure-gfm/unnamed-chunk-5-1.png"><!-- --></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/performance.html">performance</a></span><span class="op">(</span><span class="va">ob</span>, start<span class="op">=</span><span class="fl">1</span>, graph<span class="op">=</span><span class="va">ptnGoe</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co">##                   start             est  hitt rank spj dist</span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="co">## 1 X.Adolf.Hoyer.Strasse X.Gesundbrunnen FALSE    4   8 5328</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/performance.html">performance</a></span><span class="op">(</span><span class="va">ob</span>, start<span class="op">=</span><span class="fl">1</span>, graph<span class="op">=</span><span class="va">ptnGoe</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">##                   start             est  hitt rank spj dist</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 X.Adolf.Hoyer.Strasse X.Gesundbrunnen FALSE    4   8 5328</span></span></code></pre></div>
 </div>
-<div id="example-multiple-origins" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-multiple-origins" class="anchor"></a>Example: Multiple Origins</h3>
+<div class="section level3">
+<h3 id="example-multiple-origins">Example: Multiple Origins<a class="anchor" aria-label="anchor" href="#example-multiple-origins"></a>
+</h3>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ptnAth</span><span class="op">)</span>
-<span class="fu"><a href="reference/origin_multiple.html">origin_multiple</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayAth</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'backtracking'</span>, graph<span class="op">=</span><span class="va">ptnAth</span>, no<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="co">## [[1]]</span></a>
-<a class="sourceLine" id="cb18-2" title="2"><span class="co">## Backtracking origin estimation:</span></a>
-<a class="sourceLine" id="cb18-3" title="3"><span class="co">## </span></a>
-<a class="sourceLine" id="cb18-4" title="4"><span class="co">## estimated node of origin 6: 6 </span></a>
-<a class="sourceLine" id="cb18-5" title="5"><span class="co">## </span></a>
-<a class="sourceLine" id="cb18-6" title="6"><span class="co">## [[2]]</span></a>
-<a class="sourceLine" id="cb18-7" title="7"><span class="co">## Backtracking origin estimation:</span></a>
-<a class="sourceLine" id="cb18-8" title="8"><span class="co">## </span></a>
-<a class="sourceLine" id="cb18-9" title="9"><span class="co">## estimated node of origin 1: 1</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ptnAth</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/origin_multiple.html">origin_multiple</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayAth</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'backtracking'</span>, graph<span class="op">=</span><span class="va">ptnAth</span>, no<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [[1]]</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Backtracking origin estimation:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">## estimated node of origin 6: 6 </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [[2]]</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Backtracking origin estimation:</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="do">## estimated node of origin 1: 1</span></span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># edm</span>
-<span class="va">athnet</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html">as_adjacency_matrix</a></span><span class="op">(</span><span class="va">ptnAth</span>, sparse<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="va">athnet</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">athnet</span><span class="op">)</span>
-<span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/eff_dist.html">eff_dist</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co">## Computing the effective distance between 51 nodes:</span></a>
-<a class="sourceLine" id="cb20-2" title="2"><span class="co">##  1...................................................done</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># edm</span></span>
+<span><span class="va">athnet</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html" class="external-link">as_adjacency_matrix</a></span><span class="op">(</span><span class="va">ptnAth</span>, sparse<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">athnet</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">athnet</span><span class="op">)</span></span>
+<span><span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/eff_dist.html">eff_dist</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Computing the effective distance between 51 nodes:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  1...................................................done</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/origin_multiple.html">origin_multiple</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayAth</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'edm'</span>, graph<span class="op">=</span><span class="va">ptnAth</span>, no<span class="op">=</span><span class="fl">2</span>, distance<span class="op">=</span><span class="va">eff</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co">## [[1]]</span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="co">## Effective distance median origin estimation:</span></a>
-<a class="sourceLine" id="cb22-3" title="3"><span class="co">## </span></a>
-<a class="sourceLine" id="cb22-4" title="4"><span class="co">## estimated node of origin 3: 3 </span></a>
-<a class="sourceLine" id="cb22-5" title="5"><span class="co">## </span></a>
-<a class="sourceLine" id="cb22-6" title="6"><span class="co">## [[2]]</span></a>
-<a class="sourceLine" id="cb22-7" title="7"><span class="co">## Effective distance median origin estimation:</span></a>
-<a class="sourceLine" id="cb22-8" title="8"><span class="co">## </span></a>
-<a class="sourceLine" id="cb22-9" title="9"><span class="co">## estimated node of origin 2: 2</span></a></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/origin_multiple.html">origin_multiple</a></span><span class="op">(</span>events<span class="op">=</span><span class="va">delayAth</span><span class="op">[</span><span class="fl">10</span>,<span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, type<span class="op">=</span><span class="st">'edm'</span>, graph<span class="op">=</span><span class="va">ptnAth</span>, no<span class="op">=</span><span class="fl">2</span>, distance<span class="op">=</span><span class="va">eff</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [[1]]</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Effective distance median origin estimation:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="do">## estimated node of origin 3: 3 </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [[2]]</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Effective distance median origin estimation:</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="do">## estimated node of origin 2: 2</span></span></code></pre></div>
 </div>
-<div id="references" class="section level3">
-<h3 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h3>
+<div class="section level3">
+<h3 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h3>
 <ul>
 <li><p>Li, J., J. Manitz, E. Bertuzzo, and E.D. Kolaczyk (2021): Sensor-based localization of epidemic sources on human mobility networks. PLoS Comput Biol 17(1): e1008545. &lt;DOI: 10.1371/journal.pcbi.1008545&gt;</p></li>
 <li><p>Manitz, J., J. Harbering, M. Schmidt, T. Kneib, and A. Schoebel (2017): Source Estimation for Propagation Processes on Complex Networks with an Application to Delays in Public Transportation Systems. Journal of Royal Statistical Society C (Applied Statistics), 66: 521–536. &lt;DOI: 10.1111/rssc.12176&gt;</p></li>
@@ -206,56 +203,59 @@
 <li><p>Comin, C. H. and da Fontoura Costa, L. (2011) Identifying the starting point of a spreading process in complex networks. Physical Review E, 84. &lt;DOI: 10.1103/PhysRevE.84.056105&gt;</p></li>
 </ul>
 <p>To cite package ‘NetOrigin’ in publications use:</p>
-<p>Juliane Manitz (2018). NetOrigin: Origin Estimation for Propagation Processes on Complex Networks. R package version 1.0-3. <a href="https://CRAN.R-project.org/package=NetOrigin" class="uri">https://CRAN.R-project.org/package=NetOrigin</a></p>
-<p>Use <code><a href="https://rdrr.io/r/utils/toLatex.html">toBibtex(citation("NetOrigin"))</a></code> in R to extract BibTeX references.</p>
+<p>Juliane Manitz (2018). NetOrigin: Origin Estimation for Propagation Processes on Complex Networks. R package version 1.0-3. <a href="https://CRAN.R-project.org/package=NetOrigin" class="external-link uri">https://CRAN.R-project.org/package=NetOrigin</a></p>
+<p>Use <code>toBibtex(citation("NetOrigin"))</code> in R to extract BibTeX references.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=NetOrigin">https://​cloud.r-project.org/​package=NetOrigin</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/jmanitz/NetOrigin/">https://​github.com/​jmanitz/​NetOrigin/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/jmanitz/NetOrigin/issues">https://​github.com/​jmanitz/​NetOrigin/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Juliane Manitz <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://cloud.r-project.org/package=NetOrigin" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/jmanitz/NetOrigin/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/jmanitz/NetOrigin/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/jmanitz/NetOrigin"><img src="https://travis-ci.org/jmanitz/NetOrigin.svg?branch=master" alt="Build Status (Linux)"></a></li>
-<li><a href="https://ci.appveyor.com/project/jmanitz/NetOrigin/branch/master"><img src="https://ci.appveyor.com/api/projects/status/github/jmanitz/NetOrigin?branch=master&amp;svg=true" alt="Build status (Windows)"></a></li>
-<li><a href="https://coveralls.io/github/jmanitz/NetOrigin?branch=master"><img src="https://coveralls.io/repos/github/jmanitz/NetOrigin/badge.svg?branch=master" alt="Coverage Status"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing NetOrigin</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Juliane Manitz <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Juliane Manitz.</p>
+  <p></p>
+<p>Developed by Juliane Manitz.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -263,6 +263,8 @@
 
   
 
+
+  
 
   </body>
 </html>
