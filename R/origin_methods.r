@@ -41,7 +41,7 @@ globalVariables(c("id", "bcount"))
 #' performance(om, start=1, graph=ptnGoe)
 #' 
 #' @rdname origin
-#' @import Hmisc igraph
+#' @import igraph 
 #' @export
 origin_edm <- function(events, distance, silent=TRUE){    
     ### error handling
@@ -117,7 +117,7 @@ origin_edm <- function(events, distance, silent=TRUE){
 #' @export
 var_wtd_mean_cochran <- function(x,w){
   n = length(w)
-  xWbar = wtd.mean(x,w, na.rm=TRUE)
+  xWbar = Hmisc::wtd.mean(x,w, na.rm=TRUE)
   wbar = mean(w, na.rm=TRUE)
   out = n/((n-1)*sum(w)^2)*(sum((w*x-wbar*xWbar)^2) -
         2*xWbar*sum((w-wbar)*(w*x-wbar*xWbar))+xWbar^2*sum((w-wbar)^2))
