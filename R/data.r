@@ -77,7 +77,7 @@ NULL
 #' @import igraph
 #'
 #' @examples
-#' \donttest{ 
+#' \dontrun{ 
 #' # compute effective distance
 #' data(ptnAth)
 #' athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
@@ -106,7 +106,7 @@ NULL
 #' @import igraph plyr
 #'
 #' @examples
-#' \donttest{ 
+#' \dontrun{ 
 #' # compute effective distance
 #' data(ptnGoe)
 #' goenet <- igraph::as_adjacency_matrix(ptnGoe, sparse=FALSE)

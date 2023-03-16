@@ -22,7 +22,7 @@ Delay propagation data examples simulated by LinTim software
 \code{delayGoe} Delay data on the directed Goettingen bus system. Progation simulation under consideration of secruity distances and fixed-waiting time delay management. 'data.frame' with 2570 observations (10 sequential time pictures for delay spreading pattern from 257 stations) of 259 variables (\code{k0} true source, \code{time}, delays at 257 stations).
 }
 \examples{
-\donttest{ 
+\dontrun{ 
 # compute effective distance
 data(ptnAth)
 athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
@@ -35,7 +35,7 @@ res <- plyr::alply(.data=delayAth[,-c(1:2)], .margins=1, .fun=origin_edm, distan
 perfAth <- plyr::ldply(Map(performance, x = res, start = as.list(delayAth$k0),  
                      list(graph = ptnAth)))
 }
-\donttest{ 
+\dontrun{ 
 # compute effective distance
 data(ptnGoe)
 goenet <- igraph::as_adjacency_matrix(ptnGoe, sparse=FALSE)
