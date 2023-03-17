@@ -111,7 +111,7 @@ origin_edm <- function(events, distance, silent=TRUE){
 #' @references \itemize{
 #'   \item Gatz, D. F., and Smith, L. (1995). The standard error of a weighted mean concentration-I. Bootstrapping vs other methods. Atmospheric Environment, 29(11), 1185-1193. <DOI: 10.1016/1352-2310(94)00210-C>
 #'   \item Gatz, D. F., and Smith, L. (1995). The standard error of a weighted mean concentration-II. Estimating confidence intervals. Atmospheric Environment, 29(11), 1195-1200. <DOI: 10.1016/1352-2310(94)00209-4>
-#'   \item \url{https://r.789695.n4.nabble.com/Problem-with-Weighted-Variance-in-Hmisc-td826437.html}
+#   \item \url{https://r.789695.n4.nabble.com/Problem-with-Weighted-Variance-in-Hmisc-td826437.html}
 #' }
 #'
 #' @export
