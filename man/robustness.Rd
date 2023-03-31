@@ -43,7 +43,7 @@ require(igraph)
 dat <- data.frame(node  = sample(size = 500, make.names(V(ptnAth)$name), replace = TRUE),
                   time  = sample(size = 500, 1:10, replace = TRUE),
                   delay = rexp(500, rate=10))
-# compute effective distance
+# compute effective distance 
 net <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
 p <- net/rowSums(net)
 eff <- eff_dist(p)

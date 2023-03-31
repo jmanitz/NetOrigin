@@ -37,9 +37,6 @@ Multiple origin estimation using community partitioning
 }
 \examples{
 data(ptnAth)
-# backtracking
-origin_multiple(events=delayAth[10,-c(1:2)], type='backtracking', graph=ptnAth, no=2)
-# edm
 athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
 p <- athnet/rowSums(athnet)
 eff <- eff_dist(p)
