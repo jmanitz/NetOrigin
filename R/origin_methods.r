@@ -430,7 +430,7 @@ origin_multiple <- function(events, ...) UseMethod("origin_multiple")
 #' athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
 #' p <- athnet/rowSums(athnet)
 #' eff <- eff_dist(p)
-#' origin_multiple(events=delayAth[10,-c(1:2)], type='edm', graph=ptnAth, no=2, distance=eff)
+#' origin_multiple(events=delayAth[23,-c(1:2)], type='edm', graph=ptnAth, no=2, distance=eff)
 #' 
 #' @import igraph
 #' @export
