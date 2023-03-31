@@ -35,14 +35,6 @@ origin_multiple(
 \description{
 Multiple origin estimation using community partitioning
 }
-\examples{
-data(ptnAth)
-athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
-p <- athnet/rowSums(athnet)
-eff <- eff_dist(p)
-origin_multiple(events=delayAth[10,-c(1:2)], type='edm', graph=ptnAth, no=2, distance=eff)
-
-}
 \references{
 Zang, W., Zhang, P., Zhou, C. and Guo, L. (2014) Discovering Multiple Diffusion Source Nodes in Social Networks. Procedia Computer Science, 29, 443-452. <DOI: 10.1016/j.procs.2014.05.040>
 }
