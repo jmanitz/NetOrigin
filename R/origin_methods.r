@@ -447,6 +447,7 @@ origin_multiple <- function(events, type=c('edm', 'backtracking', 'centrality'),
     gsub <- induced_subgraph(graph, which(V(graph)$delay>0))
 
     # define communities 
+    options(warn=2)
     com <- if(fast) fastgreedy.community(gsub) else leading.eigenvector.community(gsub)
     comC <- cutat(com, no=no)
 
