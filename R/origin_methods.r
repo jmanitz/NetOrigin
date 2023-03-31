@@ -425,13 +425,6 @@ origin_multiple <- function(events, ...) UseMethod("origin_multiple")
 #'
 #' @references Zang, W., Zhang, P., Zhou, C. and Guo, L. (2014) Discovering Multiple Diffusion Source Nodes in Social Networks. Procedia Computer Science, 29, 443-452. <DOI: 10.1016/j.procs.2014.05.040>
 #'
-#' @examples
-#' data(ptnAth)
-#' athnet <- igraph::as_adjacency_matrix(ptnAth, sparse=FALSE)
-#' p <- athnet/rowSums(athnet)
-#' eff <- eff_dist(p)
-#' origin_multiple(events=delayAth[23,-c(1:2)], type='edm', graph=ptnAth, no=2, distance=eff)
-#' 
 #' @import igraph
 #' @export
 origin_multiple <- function(events, type=c('edm', 'backtracking', 'centrality'), graph, no=2, distance, fast=TRUE, ...){
