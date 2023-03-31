@@ -1,7 +1,7 @@
 
 ## `NetOrigin` package
 
-[![Build Status
+# [![Build Status
 (Linux)](https://travis-ci.org/jmanitz/NetOrigin.svg?branch=master)](https://travis-ci.org/jmanitz/NetOrigin)
 [![Build status
 (Windows)](https://ci.appveyor.com/api/projects/status/github/jmanitz/NetOrigin?branch=master&svg=true)](https://ci.appveyor.com/project/jmanitz/NetOrigin/branch/master)
