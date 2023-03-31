@@ -11,7 +11,7 @@ NULL
 #' @author Juliane Manitz and Jonas Harbering
 #' @seealso \code{\link{delay-data}}
 #' 
-#' @source Public transportation network datasets are extracted from LinTim software (Integrated Optimization in Public Transportation; \url{https://www.lintim.net/index.php?go=data&lang=en}). Special thanks to Anita Schoebel for making the data available. 
+#' @source Public transportation network datasets are extracted from LinTim software (Integrated Optimization in Public Transportation; \url{https://lintim.net/}). Special thanks to Anita Schoebel for making the data available. 
 NULL
 
 #' \code{ptnAth} The data of the Athens Metro, consisting of 51 nodes and 52 edges. 
