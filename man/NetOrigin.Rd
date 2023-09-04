@@ -3,6 +3,7 @@
 \docType{package}
 \name{NetOrigin}
 \alias{NetOrigin}
+\alias{NetOrigin-package}
 \title{Origin Estimation for Propagation Processes on Complex Networks}
 \description{
 Performs different approaches for network-based source estimation: effective distance median, recursive backtracking, and centrality-based source estimation. Additionally, we provide public transportation network data as well as methods for data preparation, source estimation performance analysis and visualization.

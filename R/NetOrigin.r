@@ -15,6 +15,7 @@
 #' 
 #' @docType package
 #' @name NetOrigin
+#' @aliases NetOrigin-package
 NULL
 
 
